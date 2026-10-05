@@ -1,0 +1,8 @@
+.layout {
+  display: flex;
+  gap: 24px;
+}
+
+.conteudo {
+  flex: 1;
+}

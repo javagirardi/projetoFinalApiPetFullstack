@@ -1,0 +1,32 @@
+import { AppDataSource } from "../../config/database_postgres.js";
+
+// O site trabalha só com cães e gatos
+const tiposPets = ["Cachorro", "Gato"];
+
+export const seedTiposPets = async () => {
+  try {
+    await AppDataSource.initialize();
+
+    for (const nome of tiposPets) {
+      await AppDataSource.query(
+        `INSERT INTO tipos (nome) VALUES ($1) ON CONFLICT (nome) DO NOTHING`,
+        [nome],
+      );
+    }
+
+    const [{ total }] = await AppDataSource.query(
+      `SELECT COUNT(*)::int AS total FROM tipos`,
+    );
+
+    console.log(
+      `Seed de tipos de pets concluída. Total de registros: ${total}`,
+    );
+  } catch (error) {
+    console.error("Erro ao criar seed de tipos de pets:", error);
+    process.exitCode = 1;
+  } finally {
+    if (AppDataSource.isInitialized) {
+      await AppDataSource.destroy();
+    }
+  }
+};

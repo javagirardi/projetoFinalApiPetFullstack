@@ -1,0 +1,24 @@
+# Banco PostgreSQL do projeto. Usuário, senha, nome do banco e porta vêm do .env desta pasta.
+#   npm run db:subir    -> sobe o banco em segundo plano
+#   npm run db:parar    -> para o banco (os dados continuam salvos no volume)
+services:
+  banco:
+    image: postgres:17
+    container_name: lab365petamigo-banco
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - "${DB_PORT}:5432"
+    volumes:
+      - dados-banco:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USERNAME} -d ${DB_NAME}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  dados-banco:
