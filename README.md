@@ -87,7 +87,7 @@ Os testes usam portas HTTP locais temporárias e PostgreSQL em memória (PGlite)
 - Formulário compartilhado de cadastro/edição de pets, com prévia de foto e atualização parcial.
 - Arquivamento com motivo, impedimentos e restauração, preservando os históricos.
 
-Os módulos 2 e 3 estão implementados localmente. As referências de navegação expressamente exigidas nesses requisitos são preservadas, sem implementar suas telas de destino. Para permitir o uso isolado, as entradas padrão de login redirecionam a “Minhas adoções” ou à gestão de pets; detalhes em [contratos](docs/CONTRATOS.md). GitHub/PRs e criação do quadro Trello ainda dependem de acesso autenticado. Não considerar cartões concluídos antes do merge conforme o enunciado.
+Os módulos 2 e 3 estão implementados localmente. As referências de navegação expressamente exigidas nesses requisitos são preservadas, sem implementar suas telas de destino. Para permitir o uso isolado, as entradas padrão de login redirecionam a “Minhas adoções” ou à gestão de pets; detalhes em [contratos](docs/CONTRATOS.md). A implementação foi publicada no GitHub com PR #1 em rascunho; revisão e merges estão pendentes. A criação do quadro Trello ainda depende da conexão da conta. Não considerar cartões concluídos antes do merge conforme o enunciado.
 
 O termo usa lorem ipsum demonstrativo, conforme solicitado. O WhatsApp autorizado foi configurado em `VITE_ONG_WHATSAPP` no ambiente local e no `.env.example`. Cada pedido ativo apresenta o link de contato com mensagem contextual. A configuração pode ser substituída por ambiente; o texto do termo permanece demonstrativo por autorização do usuário.
 

@@ -160,7 +160,7 @@ Planejamento proposto em 17/10/2026, sem afirmar início ou cerimônias anterior
 
 Lista: Em andamento. Responsável: proprietário do quadro. Etiquetas: Módulo 2.
 
-Contato autorizado pelo usuário configurado no ambiente local e no exemplo de configuração. Link contextual por pedido ativo, sem envio automático de mensagens. Termo lorem ipsum identificado e autorizado. Aguarda PR/revisão/merge.
+Contato autorizado pelo usuário configurado no ambiente local e no exemplo de configuração. Link contextual por pedido ativo, sem envio automático de mensagens. Termo lorem ipsum identificado e autorizado. Coberto pelo PR de consolidação #1, em rascunho; aguarda revisão e merge.
 
 - [x] Manter termo demonstrativo identificado
 - [x] Configurar contato autorizado e conferir destino/mensagem dos links
