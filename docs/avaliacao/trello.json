@@ -35,12 +35,12 @@
     {
       "id": "2.1",
       "titulo": "2.1 Login e sessão por perfil",
-      "lista": "Em andamento",
+      "lista": "Em revisão (Pull Request aberto)",
       "etiquetas": [
         "Módulo 2"
       ],
       "responsavel": "proprietario_do_quadro",
-      "descricao": "Trabalho individual. Implementação local disponível; aguarda organização do histórico Git, PR e revisão.\nEscopo funcional: somente módulos 2 e 3.\nEvidências: backend/src/auth; frontend/src/auth; frontend/src/pages/Login.jsx; backend/test/auth.test.js; shared/test/contracts.test.js.",
+      "descricao": "Trabalho individual. Implementação publicada em PR de consolidação em rascunho; aguarda conferência independente e revisão. PR: https://github.com/javagirardi/projetoFinalApiPetFullstack/pull/1\nEscopo funcional: somente módulos 2 e 3.\nEvidências: backend/src/auth; frontend/src/auth; frontend/src/pages/Login.jsx; backend/test/auth.test.js; shared/test/contracts.test.js.",
       "checklist": [
         {
           "nome": "Login por e-mail/senha; API retorna sessão plana com role admin/lar",
@@ -59,8 +59,8 @@
           "concluido": true
         },
         {
-          "nome": "Linkar o PR deste requisito ao cartão",
-          "concluido": false
+          "nome": "PR referenciado na especificação local; vincular ao cartão real quando o quadro for criado",
+          "concluido": true
         },
         {
           "nome": "Revisar o PR e corrigir os apontamentos",
@@ -71,17 +71,17 @@
           "concluido": false
         }
       ],
-      "pr": null
+      "pr": "https://github.com/javagirardi/projetoFinalApiPetFullstack/pull/1"
     },
     {
       "id": "2.2",
       "titulo": "2.2 Cadastro do lar adotivo",
-      "lista": "Em andamento",
+      "lista": "Em revisão (Pull Request aberto)",
       "etiquetas": [
         "Módulo 2"
       ],
       "responsavel": "proprietario_do_quadro",
-      "descricao": "Trabalho individual. Implementação local disponível; aguarda organização do histórico Git, PR e revisão.\nEscopo funcional: somente módulos 2 e 3.\nEvidências: frontend/src/pages/Cadastro.jsx; backend/src/modules/lares.js; shared/src/validation.js; backend/test/modules.test.js.",
+      "descricao": "Trabalho individual. Implementação publicada em PR de consolidação em rascunho; aguarda conferência independente e revisão. PR: https://github.com/javagirardi/projetoFinalApiPetFullstack/pull/1\nEscopo funcional: somente módulos 2 e 3.\nEvidências: frontend/src/pages/Cadastro.jsx; backend/src/modules/lares.js; shared/src/validation.js; backend/test/modules.test.js.",
       "checklist": [
         {
           "nome": "Campos, máscaras e ViaCEP com alternativa de endereço manual",
@@ -104,8 +104,8 @@
           "concluido": true
         },
         {
-          "nome": "Linkar o PR deste requisito ao cartão",
-          "concluido": false
+          "nome": "PR referenciado na especificação local; vincular ao cartão real quando o quadro for criado",
+          "concluido": true
         },
         {
           "nome": "Revisar o PR e corrigir os apontamentos",
@@ -116,17 +116,17 @@
           "concluido": false
         }
       ],
-      "pr": null
+      "pr": "https://github.com/javagirardi/projetoFinalApiPetFullstack/pull/1"
     },
     {
       "id": "2.3",
       "titulo": "2.3 Minhas adoções",
-      "lista": "Em andamento",
+      "lista": "Em revisão (Pull Request aberto)",
       "etiquetas": [
         "Módulo 2"
       ],
       "responsavel": "proprietario_do_quadro",
-      "descricao": "Trabalho individual. Implementação local disponível; aguarda organização do histórico Git, PR e revisão.\nEscopo funcional: somente módulos 2 e 3.\nEvidências: frontend/src/pages/MinhasAdocoes.jsx; backend/src/modules/lares.js; backend/test/modules.test.js.",
+      "descricao": "Trabalho individual. Implementação publicada em PR de consolidação em rascunho; aguarda conferência independente e revisão. PR: https://github.com/javagirardi/projetoFinalApiPetFullstack/pull/1\nEscopo funcional: somente módulos 2 e 3.\nEvidências: frontend/src/pages/MinhasAdocoes.jsx; backend/src/modules/lares.js; backend/test/modules.test.js.",
       "checklist": [
         {
           "nome": "Isolar pedidos pelo ID do lar no token; equipe não acessa",
@@ -149,8 +149,8 @@
           "concluido": true
         },
         {
-          "nome": "Linkar o PR deste requisito ao cartão",
-          "concluido": false
+          "nome": "PR referenciado na especificação local; vincular ao cartão real quando o quadro for criado",
+          "concluido": true
         },
         {
           "nome": "Revisar o PR e corrigir os apontamentos",
@@ -161,17 +161,17 @@
           "concluido": false
         }
       ],
-      "pr": null
+      "pr": "https://github.com/javagirardi/projetoFinalApiPetFullstack/pull/1"
     },
     {
       "id": "3.1",
       "titulo": "3.1 Listagem administrativa de pets",
-      "lista": "Em andamento",
+      "lista": "Em revisão (Pull Request aberto)",
       "etiquetas": [
         "Módulo 3"
       ],
       "responsavel": "proprietario_do_quadro",
-      "descricao": "Trabalho individual. Implementação local disponível; aguarda organização do histórico Git, PR e revisão.\nEscopo funcional: somente módulos 2 e 3.\nEvidências: frontend/src/pages/PetList.jsx; backend/src/modules/pets.js; shared/src/index.js.",
+      "descricao": "Trabalho individual. Implementação publicada em PR de consolidação em rascunho; aguarda conferência independente e revisão. PR: https://github.com/javagirardi/projetoFinalApiPetFullstack/pull/1\nEscopo funcional: somente módulos 2 e 3.\nEvidências: frontend/src/pages/PetList.jsx; backend/src/modules/pets.js; shared/src/index.js.",
       "checklist": [
         {
           "nome": "Acesso só da equipe; cards e situação calculada com cinco estados",
@@ -190,8 +190,8 @@
           "concluido": true
         },
         {
-          "nome": "Linkar o PR deste requisito ao cartão",
-          "concluido": false
+          "nome": "PR referenciado na especificação local; vincular ao cartão real quando o quadro for criado",
+          "concluido": true
         },
         {
           "nome": "Revisar o PR e corrigir os apontamentos",
@@ -202,17 +202,17 @@
           "concluido": false
         }
       ],
-      "pr": null
+      "pr": "https://github.com/javagirardi/projetoFinalApiPetFullstack/pull/1"
     },
     {
       "id": "3.2",
       "titulo": "3.2 Cadastro de pet",
-      "lista": "Em andamento",
+      "lista": "Em revisão (Pull Request aberto)",
       "etiquetas": [
         "Módulo 3"
       ],
       "responsavel": "proprietario_do_quadro",
-      "descricao": "Trabalho individual. Implementação local disponível; aguarda organização do histórico Git, PR e revisão.\nEscopo funcional: somente módulos 2 e 3.\nEvidências: frontend/src/pages/PetForm.jsx; backend/src/modules/pets.js; shared/src/validation.js.",
+      "descricao": "Trabalho individual. Implementação publicada em PR de consolidação em rascunho; aguarda conferência independente e revisão. PR: https://github.com/javagirardi/projetoFinalApiPetFullstack/pull/1\nEscopo funcional: somente módulos 2 e 3.\nEvidências: frontend/src/pages/PetForm.jsx; backend/src/modules/pets.js; shared/src/validation.js.",
       "checklist": [
         {
           "nome": "Catálogos públicos e envio dos IDs de tipo/raça/cor",
@@ -231,8 +231,8 @@
           "concluido": true
         },
         {
-          "nome": "Linkar o PR deste requisito ao cartão",
-          "concluido": false
+          "nome": "PR referenciado na especificação local; vincular ao cartão real quando o quadro for criado",
+          "concluido": true
         },
         {
           "nome": "Revisar o PR e corrigir os apontamentos",
@@ -243,17 +243,17 @@
           "concluido": false
         }
       ],
-      "pr": null
+      "pr": "https://github.com/javagirardi/projetoFinalApiPetFullstack/pull/1"
     },
     {
       "id": "3.3",
       "titulo": "3.3 Edição parcial do pet",
-      "lista": "Em andamento",
+      "lista": "Em revisão (Pull Request aberto)",
       "etiquetas": [
         "Módulo 3"
       ],
       "responsavel": "proprietario_do_quadro",
-      "descricao": "Trabalho individual. Implementação local disponível; aguarda organização do histórico Git, PR e revisão.\nEscopo funcional: somente módulos 2 e 3.\nEvidências: frontend/src/pages/PetForm.jsx; backend/src/modules/pets.js; backend/test/modules.test.js.",
+      "descricao": "Trabalho individual. Implementação publicada em PR de consolidação em rascunho; aguarda conferência independente e revisão. PR: https://github.com/javagirardi/projetoFinalApiPetFullstack/pull/1\nEscopo funcional: somente módulos 2 e 3.\nEvidências: frontend/src/pages/PetForm.jsx; backend/src/modules/pets.js; backend/test/modules.test.js.",
       "checklist": [
         {
           "nome": "Reutilizar formulário, carregar em GET /admin/pets/:id e tratar 404",
@@ -272,8 +272,8 @@
           "concluido": true
         },
         {
-          "nome": "Linkar o PR deste requisito ao cartão",
-          "concluido": false
+          "nome": "PR referenciado na especificação local; vincular ao cartão real quando o quadro for criado",
+          "concluido": true
         },
         {
           "nome": "Revisar o PR e corrigir os apontamentos",
@@ -284,17 +284,17 @@
           "concluido": false
         }
       ],
-      "pr": null
+      "pr": "https://github.com/javagirardi/projetoFinalApiPetFullstack/pull/1"
     },
     {
       "id": "3.4",
       "titulo": "3.4 Arquivamento e restauração",
-      "lista": "Em andamento",
+      "lista": "Em revisão (Pull Request aberto)",
       "etiquetas": [
         "Módulo 3"
       ],
       "responsavel": "proprietario_do_quadro",
-      "descricao": "Trabalho individual. Implementação local disponível; aguarda organização do histórico Git, PR e revisão.\nEscopo funcional: somente módulos 2 e 3.\nEvidências: backend/src/modules/pets.js; frontend/src/pages/PetList.jsx; backend/test/modules.test.js.",
+      "descricao": "Trabalho individual. Implementação publicada em PR de consolidação em rascunho; aguarda conferência independente e revisão. PR: https://github.com/javagirardi/projetoFinalApiPetFullstack/pull/1\nEscopo funcional: somente módulos 2 e 3.\nEvidências: backend/src/modules/pets.js; frontend/src/pages/PetList.jsx; backend/test/modules.test.js.",
       "checklist": [
         {
           "nome": "Motivo obrigatório até 255 caracteres, solicitado dentro do card",
@@ -313,8 +313,8 @@
           "concluido": true
         },
         {
-          "nome": "Linkar o PR deste requisito ao cartão",
-          "concluido": false
+          "nome": "PR referenciado na especificação local; vincular ao cartão real quando o quadro for criado",
+          "concluido": true
         },
         {
           "nome": "Revisar o PR e corrigir os apontamentos",
@@ -325,7 +325,7 @@
           "concluido": false
         }
       ],
-      "pr": null
+      "pr": "https://github.com/javagirardi/projetoFinalApiPetFullstack/pull/1"
     },
     {
       "id": "G1",
@@ -335,7 +335,7 @@
         "Geral"
       ],
       "responsavel": "proprietario_do_quadro",
-      "descricao": "Destino único autorizado: https://github.com/javagirardi/projetoFinalApiPetFullstack. Conta autenticada e repositório pessoal criado. Branch de consolidação feature/modulos-2-e-3 a partir do template oficial. Conferir os links e o estado real em DESTINOS_GITHUB.md; não simular histórico retroativo ou declarar merges pendentes como concluídos.",
+      "descricao": "Destino único autorizado: https://github.com/javagirardi/projetoFinalApiPetFullstack. Conta autenticada e repositório pessoal criado. Branch de consolidação feature/modulos-2-e-3 a partir do template oficial. PR de consolidação #1 aberto em rascunho para develop. Conferir os links e o estado real em DESTINOS_GITHUB.md; não simular histórico retroativo ou declarar merges pendentes como concluídos.",
       "checklist": [
         {
           "nome": "Conferir publicação e branches do repositório pessoal",

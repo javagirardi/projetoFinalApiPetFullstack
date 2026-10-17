@@ -44,7 +44,7 @@ O seed de demonstração só permite o banco `lab365petamigo_modulo4`, recusa am
 - O retorno oficial `{ redirectTo: '/pets/:id', petId }` é preservado pelo login/cadastro, assim como o alias anterior com `?adotar=1`. Somente o contrato do retorno é coberto nesta entrega; a tela de destino não é implementada. Consulte `CONTRATOS.md` para os links exigidos pelo enunciado e o redirecionamento das entradas padrão.
 - WhatsApp: o contato autorizado já está em `VITE_ONG_WHATSAPP`. Conferir o link de cada pedido ativo e a mensagem com número do pedido e nome do pet. A verificação não envia mensagens pelo WhatsApp.
 - O termo usa lorem ipsum a pedido do usuário; substituir antes de qualquer uso real.
-- Template oficial conferido e reconciliado nos contratos e estrutura dos módulos 2 e 3. Autenticação/conciliação do histórico Git, PRs, criação do Trello e entrega no AVA seguem pendentes. O trabalho é individual; `origin` aponta para o repositório informado e `template` preserva as referências oficiais.
+- Template oficial conferido e reconciliado nos contratos e estrutura dos módulos 2 e 3. A conta GitHub foi autenticada, o repositório pessoal foi criado e a implementação foi publicada com PR #1 em rascunho; a CI do código passou. Revisão/merges, criação do Trello e entrega no AVA seguem pendentes. O trabalho é individual; `origin` aponta somente para `javagirardi/projetoFinalApiPetFullstack`, e `template` preserva a referência oficial.
 
 ## Verificações realizadas
 

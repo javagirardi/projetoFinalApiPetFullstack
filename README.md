@@ -93,6 +93,8 @@ O termo usa lorem ipsum demonstrativo, conforme solicitado. O WhatsApp autorizad
 
 ## Git e entrega
 
+Repositório: [projetoFinalApiPetFullstack](https://github.com/javagirardi/projetoFinalApiPetFullstack). Implementação publicada em `feature/modulos-2-e-3`, com [PR #1 em rascunho para develop](https://github.com/javagirardi/projetoFinalApiPetFullstack/pull/1). A branch padrão mostra a implementação durante a revisão; a integração final em main está pendente.
+
 O trabalho é individual, conforme informado pelo usuário. O único destino de publicação autorizado é `https://github.com/javagirardi/projetoFinalApiPetFullstack`, configurado em `origin`. O repositório pessoal foi criado e a conta `javagirardi` foi autenticada. O usuário cancelou a publicação na organização do curso. A integração deve seguir `feature/...` → PR → `develop`, e a entrega deve ocorrer por PR de `develop` para `main`, sem commits diretos em `main`. A situação efetiva de publicação, PR e revisão está em `docs/avaliacao/DESTINOS_GITHUB.md`; a entrega no AVA não foi realizada.
 
 A branch `feature/modulos-2-e-3` consolida o trabalho local já existente. `main` e `develop` partem do commit oficial `67e6190`, preservando sua autoria e origem. A consolidação não simula um histórico anterior de branches por requisito; a conferência independente e a revisão ainda precisam ser concluídas antes da versão final em main.
