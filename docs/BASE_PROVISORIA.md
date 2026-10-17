@@ -40,7 +40,7 @@ As pastas originais não foram movidas nem alteradas. Na nova entrega, a raiz us
 - Termo demonstrativo lorem ipsum autorizado pelo usuário e WhatsApp autorizado configurado, com link contextual por pedido ativo.
 - Header/AdminLayout adaptados ao escopo oficial. Telas vazias e auxiliares de funcionalidades adicionais removidos; consultas e travas necessárias à gestão de pets permanecem dentro do módulo 3.
 - Referências oficiais `template/develop` e `template/main`, CI/modelo de PR e especificação do quadro Lab365PetAmigo com cinco listas e 11 cartões.
-- Commit da implementação publicado em feature/modulos-2-e-3; main/develop com a base oficial e PR #1 aberto em rascunho. CI acionada no GitHub; revisão e merges pendentes.
+- Commit da implementação publicado em feature/modulos-2-e-3; main/develop com a base oficial e PR #1 aberto em rascunho. CI do commit da implementação aprovada no GitHub; revisão e merges pendentes.
 
 ## Pendente
 
