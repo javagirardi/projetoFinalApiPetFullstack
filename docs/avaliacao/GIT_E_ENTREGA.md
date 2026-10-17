@@ -13,8 +13,8 @@ Trabalho individual; escopo funcional restrito aos módulos 2 e 3. Nenhuma reuni
 
 ## Próximos passos da entrega
 
-1. Publicar a branch da consolidação e as referências main/develop sem push forçado.
-2. Abrir o PR da consolidação para develop em rascunho e executar a CI.
+1. Publicação realizada: feature/modulos-2-e-3, main e develop, sem push forçado.
+2. PR #1 aberto em rascunho: https://github.com/javagirardi/projetoFinalApiPetFullstack/pull/1. CI do commit da implementação aprovada no GitHub; conferir novas execuções após atualizações.
 3. Realizar a conferência independente usando `CHECKLIST_CONFERENCIA.md`. Correções posteriores devem usar branches fix/ a partir da develop adequada, com PRs reais.
 4. Vincular o PR aos cartões após criar o Trello. Não inventar revisores ou datas anteriores.
 5. Após revisão e validação, integrar em develop e abrir o PR final de develop para main. Não fazer commits diretos em main.
@@ -33,7 +33,7 @@ A sprint proposta tem duas semanas, 17 a 30/10. A entrega avaliativa de 19/10 pr
 ## Apresentação individual proposta — 5 minutos
 
 - 0:00–0:40: escopo 2/3, organização individual e cartões.
-- 0:40–1:20: branch, commits e PRs reais depois de criados; explicar as dependências do template.
+- 0:40–1:20: branch, commits e PR reais; explicar as dependências do template.
 - 1:20–2:20: cadastro/login, ViaCEP, sessão e acompanhamento dos pedidos de demonstração.
 - 2:20–3:50: filtros de pets, cadastro/edição e arquivamento/restauração com bloqueios.
 - 3:50–4:30: validação automática, contratos e aderência aos requisitos dos módulos 2 e 3.

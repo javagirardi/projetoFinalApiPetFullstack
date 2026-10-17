@@ -1,26 +1,25 @@
-# Destino autorizado para publicação
+# Destino e estado da publicação
 
-Orientação atualizada do usuário em 17/10/2026:
+Orientação atualizada do usuário em 17/10/2026: manter somente o repositório pessoal `javagirardi/projetoFinalApiPetFullstack`. A publicação na organização do curso foi cancelada.
 
-- Único repositório da entrega: `javagirardi/projetoFinalApiPetFullstack`.
-- O usuário cancelou a publicação na organização do curso e a criação de `api_pets_javan`.
-- Trabalho individual, limitado aos módulos 2 e 3 e às orientações gerais da avaliação.
+## Confirmado no GitHub
 
-O repositório pessoal foi criado em 17/10/2026. A publicação da implementação e a abertura do PR estão em preparação; não há merge ou entrega no AVA concluídos.
+- Repositório público criado: https://github.com/javagirardi/projetoFinalApiPetFullstack
+- Origin configurado para o repositório pessoal; autenticação feita como javagirardi.
+- Implementação publicada na branch `feature/modulos-2-e-3`, usada como branch padrão durante a revisão.
+- Commit da implementação: `da126dde6b2d9a2d0f3bfe07481202c97692954d`.
+- Conteúdo da base oficial de origem: commit `67e6190dc3114ad08c8472a365b1ae2ee9ebd586`, com autoria humana preservada.
+- Branches main e develop publicadas com a base oficial, sem commits diretos da implementação.
+- PR #1 aberto em rascunho, da feature para develop: https://github.com/javagirardi/projetoFinalApiPetFullstack/pull/1
+- A CI do commit da implementação foi aprovada no GitHub (testes e build): https://github.com/javagirardi/projetoFinalApiPetFullstack/actions/runs/39048928048. Atualizações posteriores têm suas próprias execuções na aba Actions.
+- Nenhum repositório foi criado ou alterado na organização do curso.
 
-## Estado
+## Pendente para a versão final
 
-- A autenticação da conta `javagirardi` foi concluída pelo Git Credential Manager.
-- A consulta autenticada anterior, que abrangia a organização e múltiplos repositórios, foi recusada na etapa de permissão.
-- O repositório pessoal foi criado com sucesso (HTTP 201), e origin foi ajustado para seu endereço. Nenhuma criação foi executada na organização.
-- As referências locais do template oficial permanecem disponíveis para preservar a origem da base.
+1. Conferência independente dos requisitos 2.1–2.3 e 3.1–3.4 usando `CHECKLIST_CONFERENCIA.md`.
+2. Revisão do PR e correções dos apontamentos. A consolidação publica o trabalho local existente; não simula desenvolvimento anterior em branches por requisito.
+3. Criar o Trello quando conectado e registrar os vínculos e movimentações reais. A especificação local já referencia o PR, mas não comprova cartões criados no serviço.
+4. Após a revisão, integrar o PR em develop e abrir o PR final de develop para main. Não há merge nem entrega no AVA concluídos.
+5. Após a integração final, ajustar a branch padrão para main e enviar o link no AVA.
 
-## Publicação
-
-1. Conferir a existência do repositório pessoal e preservar seu conteúdo caso já exista.
-2. Criar somente `javagirardi/projetoFinalApiPetFullstack` se estiver ausente e a execução estiver autorizada.
-3. Preparar o histórico a partir das referências reais verificadas, preservando o trabalho local. Excluir arquivos de ambiente, dependências, builds e pastas antigas da publicação.
-4. Integrar a implementação por branches de funcionalidade e Pull Requests para `develop`; entregar em `main` por PR final. Não simular datas, revisões ou merges.
-5. Registrar links reais, commits, PRs e resultados de validação somente após confirmar cada ação no GitHub.
-
-O endereço pretendido para informar no AVA é `https://github.com/javagirardi/projetoFinalApiPetFullstack`, após confirmar a criação e a publicação da versão de entrega.
+O endereço da entrega será `https://github.com/javagirardi/projetoFinalApiPetFullstack`. Por enquanto, ele mostra a branch da implementação em revisão; não representa versão final integrada em main.
