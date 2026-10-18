@@ -58,10 +58,14 @@ Não há migração automática de dados antigos: a equivalência dos status ant
 
 - Suíte ampliada com os fluxos HTTP dos módulos 2 e 3, executando consultas e transações do TypeORM contra PostgreSQL em memória, além dos testes de sessão/contratos.
 - A suíte cobre os contratos oficiais e os fluxos dos requisitos 2.1–2.3 e 3.1–3.4.
-- Execução atual: **34 testes aprovados** (5 frontend, 23 backend incluindo subtestes, 6 contratos), com build de produção aprovado.
+- Execução atual: **36 testes aprovados** (7 frontend, 23 backend incluindo subtestes, 6 contratos), com build de produção aprovado.
 - `npm run build`: build de produção do frontend aprovado.
 - As oito entidades TypeORM tiveram seus metadados construídos e as colunas comparadas com o schema criado pela migração no PGlite.
 - `.env`, dependências, build e pastas antigas estão ignorados pelo Git.
 - No navegador: máscaras, consulta ao ViaCEP, validação, cadastro e retorno ao login, autenticação de ambos os perfis, grupos/históricos das adoções, filtros de pets e arquivamento/restauração foram conferidos com dados fictícios.
 - O PostgreSQL da etapa anterior permaneceu intacto. Todas as gravações locais ocorreram no banco separado da nova etapa.
 - Após alinhar o template, a API foi reiniciada e o login da equipe retornou corretamente à rota protegida no navegador, com o AdminLayout e os endereços de edição oficiais.
+
+## Revisão visual — 18/10/2026
+
+Tema lilás/azul pastel aplicado às telas dos módulos 2 e 3. Fotografias do projeto anterior recuperadas como arquivos locais; seed preenche somente fotos ausentes dos exemplos. Login, formulários e cartões conferidos no navegador. Detalhes em `VISUAL.md`.

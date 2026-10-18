@@ -16,7 +16,7 @@ npm run db:seed
 npm run db:demo
 ```
 
-O seed de demonstração só permite o banco `lab365petamigo_modulo4`, recusa ambiente de produção e preserva contas/registros existentes. Ele cria sete pets para observar os cinco estados, com pedidos em análise, entrevista, aprovados, concluídos, recusados e cancelados. Os pedidos e históricos são dados de teste para as consultas e regras dos módulos 2 e 3.
+O seed de demonstração só permite o banco `lab365petamigo_modulo4`, recusa ambiente de produção e preserva contas/registros existentes. Ele cria sete pets para observar os cinco estados, com pedidos em análise, entrevista, aprovados, concluídos, recusados e cancelados. Os pedidos e históricos são dados de teste para as consultas e regras dos módulos 2 e 3. As fotos dos exemplos foram recuperadas do projeto anterior; executar novamente db:demo preenche somente fotos ausentes desses registros, preservando fotos já cadastradas.
 
 ## Cadastro e sessão
 
@@ -50,6 +50,6 @@ O seed de demonstração só permite o banco `lab365petamigo_modulo4`, recusa am
 
 - Banco novo criado, migração aplicada e seeds executados, preservando o banco da etapa anterior.
 - Suíte automatizada dos contratos oficiais e fluxos dos módulos 2 e 3; build de produção verificado.
-- Execução mais recente: 34 testes aprovados. Reinício da API, login da equipe, retorno à rota protegida e layout/endereço de edição oficiais conferidos no navegador.
+- Execução mais recente: 36 testes aprovados. Reinício da API, login da equipe, retorno à rota protegida e layout/endereço de edição oficiais conferidos no navegador.
 - Cadastro real de uma conta fictícia pelo navegador, máscaras, preenchimento ViaCEP e retorno ao login conferidos.
 - Login dos dois perfis, grupos/históricos de adoção, listagem administrativa e arquivamento/restauração conferidos no navegador.
