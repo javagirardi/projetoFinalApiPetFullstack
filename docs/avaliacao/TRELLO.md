@@ -4,6 +4,13 @@ Quadro publicado: https://trello.com/b/LexKmACW/lab365petamigo. Os endereços re
 
 Trabalho individual. Escopo: módulos 2 e 3. Professor será adicionado posteriormente. Listas: Product Backlog → Sprint Backlog → Em andamento → Em revisão (Pull Request aberto) → Concluído.
 
+## Acompanhamento registrado no serviço
+
+- 2026-10-18: [Acompanhamento e revisão técnica](https://trello.com/c/kIYwuxMx/11-sprint-1-m%C3%B3dulos-2-e-3#comment-6ad4ea1e711d4b32c67fed1b). Andamento real dos módulos 2 e 3, correção da largura em Full HD, resoluções verificadas, build e pendências de integração/entrega.
+- 2026-10-18: [Retrospectiva parcial individual](https://trello.com/c/kIYwuxMx/11-sprint-1-m%C3%B3dulos-2-e-3#comment-6ad4ea3bd091aded54279de2). Resultados, falha na conferência visual anterior e ações de melhoria. Não encerra a sprint nem comprova cerimônias anteriores ou daily de aula.
+
+A sprint está Em andamento. Os critérios de encerramento permanecem pendentes; os registros acima são parciais.
+
 ## 2.1 Login e sessão por perfil
 
 Lista: Concluído. Responsável: Javan Moises Girardi. Etiquetas: Módulo 2. Cartão: https://trello.com/c/xxWCb5FY/1-21-login-e-sess%C3%A3o-por-perfil.
@@ -153,7 +160,7 @@ Quadro solicitado: Lab365PetAmigo. Quadro criado: https://trello.com/b/LexKmACW/
 
 ## Sprint 1 — módulos 2 e 3
 
-Lista: Sprint Backlog. Responsável: Javan Moises Girardi. Etiquetas: Geral. Cartão: https://trello.com/c/kIYwuxMx/11-sprint-1-m%C3%B3dulos-2-e-3.
+Lista: Em andamento. Responsável: Javan Moises Girardi. Etiquetas: Geral. Cartão: https://trello.com/c/kIYwuxMx/11-sprint-1-m%C3%B3dulos-2-e-3.
 
 Planejamento proposto em 17/10/2026, sem afirmar início ou cerimônias anteriores. Janela de duas semanas: 17 a 30/10/2026. A entrega avaliativa é antecipada em 19/10/2026 às 23h55; não pode esperar o fim da sprint. Meta: validar módulos 2/3, conferência oficial, revisão e preparação da entrega. Registrar resultados reais; confirmar a adaptação do Scrum para trabalho individual com o professor.
 

@@ -25,6 +25,8 @@ Quadro público criado em 18/10/2026: [Lab365PetAmigo](https://trello.com/b/LexK
 
 ## Pendente para a entrega final
 
+Acompanhamento, revisão técnica e retrospectiva parcial registrados no cartão da sprint em 18/10/2026. A sprint foi movida para Em andamento. Os registros e links estão em [TRELLO.md](TRELLO.md); encerramento da sprint e daily nos dias de aula não foram declarados como realizados.
+
 1. Manter o quadro atualizado com o andamento real das pendências da entrega.
 2. Adicionar o professor quando sua identificação for fornecida.
 3. Abrir e integrar o PR final de `develop` para `main`; depois usar `main` como branch padrão.
