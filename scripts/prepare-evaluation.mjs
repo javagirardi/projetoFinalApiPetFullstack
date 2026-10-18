@@ -93,8 +93,14 @@ for (const card of cards) {
   }));
 }
 const board = { nome: "Lab365PetAmigo", criado_no_servico: criadoNoServico, url: publicado?.quadro?.url || null, visibilidade_proposta: "public", observacao_visibilidade: "O exemplo do anexo usa Público. Publicar apenas requisitos e links; nunca credenciais, arquivos .env ou dados pessoais.", trabalho: "individual", escopo: [2, 3], timezone: "America/Sao_Paulo", prazo_avaliacao: "2026-10-19T23:55:00-03:00", listas, etiquetas: [{ nome: "Módulo 2", cor: "blue" }, { nome: "Módulo 3", cor: "green" }, { nome: "Geral", cor: "purple" }], cards };
+board.acompanhamentos = publicado?.acompanhamentos || [];
 await writeFile(new URL("trello.json", dir), JSON.stringify(board, null, 2) + "\n");
 let md = "# Quadro Lab365PetAmigo\n\n" + (criadoNoServico ? `Quadro publicado: ${publicado.quadro.url}. Os endereços reais dos cartões estão registrados abaixo.\n\n` : "Ainda não criado no Trello: aguardando login na aba desta conversa. Este arquivo e trello.json descrevem o quadro a criar, sem comprovar ações no serviço.\n\n") + "Trabalho individual. Escopo: módulos 2 e 3. Professor será adicionado posteriormente. Listas: " + listas.join(" → ") + ".\n\n";
+if (board.acompanhamentos.length) {
+  md += "## Acompanhamento registrado no serviço\n\n";
+  for (const registro of board.acompanhamentos) md += `- ${registro.data}: [${registro.tipo}](${registro.url}). ${registro.resumo}\n`;
+  md += "\nA sprint está Em andamento. Os critérios de encerramento permanecem pendentes; os registros acima são parciais.\n\n";
+}
 for (const card of cards) md += `## ${card.titulo}\n\nLista: ${card.lista}. Responsável: ${publicado?.responsavel?.nome || "proprietário do quadro"}. Etiquetas: ${card.etiquetas.join(", ")}.${card.url ? ` Cartão: ${card.url}.` : ""}\n\n${card.descricao}\n\n${card.checklist.map((i) => `- [${i.concluido ? "x" : " "}] ${i.nome}`).join("\n")}\n\n`;
 await writeFile(new URL("TRELLO.md", dir), md.trimEnd() + "\n");
 console.log(`Especificação local atualizada: ${listas.length} listas e ${cards.length} cartões. Quadro publicado: ${criadoNoServico ? "sim" : "não"}. Esta execução não acessa o Trello.`);
