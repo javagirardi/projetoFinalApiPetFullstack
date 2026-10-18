@@ -1,8 +1,4 @@
-.layout {
-  display: flex;
-  gap: 24px;
-}
-
-.conteudo {
-  flex: 1;
-}
+.layout { display: flex; flex-direction: column; min-height: 100vh; }
+.conteudo { width: min(1240px, calc(100% - 64px)); margin: 0 auto; padding: 36px 0 55px; flex: 1; min-width: 0; }
+@media (max-width: 760px) { .conteudo { width: calc(100% - 36px); padding: 23px 0 40px; } }
+@media (max-width: 520px) { .conteudo { width: calc(100% - 28px); padding: 20px 0 35px; } }
