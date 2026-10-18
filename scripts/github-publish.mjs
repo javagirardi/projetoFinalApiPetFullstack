@@ -50,15 +50,15 @@ if (modo === "inspect") {
       ...(criado.status === 201 ? { criado: true, url: criado.data.html_url } : { criado: false, mensagem: criado.data.message }) }));
   }
 } else if (modo === "pr") {
-  const existentes = await api(`/repos/${principal}/pulls?state=open&head=${encodeURIComponent(`${conta}:${branch}`)}&base=develop`);
+  const existentes = await api(`/repos/${principal}/pulls?state=all&head=${encodeURIComponent(`${conta}:${branch}`)}&base=develop`);
   if (existentes.status !== 200) throw new Error("Não foi possível conferir os Pull Requests existentes.");
   if (existentes.data.length) {
-    console.log(JSON.stringify({ pr: existentes.data[0].html_url, numero: existentes.data[0].number, existente: true }));
+    console.log(JSON.stringify({ pr: existentes.data[0].html_url, numero: existentes.data[0].number, existente: true, integrado: existentes.data[0].merged_at !== null }));
   } else {
     const criado = await api(`/repos/${principal}/pulls`, "POST", {
       title: "Consolidar implementação individual dos módulos 2 e 3",
       head: branch, base: "develop", draft: true,
-      body: "Implementa os requisitos 2.1–2.3 e 3.1–3.4 do Lab365PetAmigo: login e sessão por perfil, cadastro de lar com ViaCEP, acompanhamento de adoções e gestão de pets com cadastro, edição parcial, arquivamento e restauração. A aplicação contém somente as telas do escopo individual autorizado.\n\nA base preserva o commit oficial 67e6190. Este PR consolida o trabalho local existente; não representa desenvolvimento retroativo em branches individuais por requisito.\n\nValidação local: 34 testes aprovados e build de produção aprovado. Arquivos .env, dependências, builds e pastas antigas excluídos.\n\nPermanece em rascunho para conferência independente dos requisitos e dos limites de navegação. O contato WhatsApp autorizado está configurado; o termo demonstrativo foi autorizado pelo usuário. O quadro Trello ainda aguarda conexão, portanto não há link de cartão nem merge declarado concluído.\n\nDepois da revisão, integrar em develop por este PR e abrir o PR final de develop para main."
+      body: "Implementa os requisitos 2.1–2.3 e 3.1–3.4 do Lab365PetAmigo: login e sessão por perfil, cadastro de lar com ViaCEP, acompanhamento de adoções e gestão de pets com cadastro, edição parcial, arquivamento e restauração. A aplicação contém somente as telas do escopo individual autorizado.\n\nO conteúdo foi conferido com o template oficial. O mapa dos commits por requisito está em docs/avaliacao/HISTORICO_REQUISITOS.md.\n\nValidação local: 36 testes aprovados e build de produção aprovado. Arquivos .env, dependências, builds e pastas antigas excluídos.\n\nPermanece em rascunho para conferência independente dos requisitos e dos limites de navegação. O contato WhatsApp autorizado está configurado; o termo demonstrativo foi autorizado pelo usuário. O quadro Trello ainda aguarda conexão, portanto não há link de cartão nem merge declarado concluído.\n\nDepois da revisão, integrar em develop por este PR e abrir o PR final de develop para main."
     });
     if (criado.status !== 201) throw new Error(`Não foi possível criar o PR (${criado.status}): ${criado.data.message}`);
     console.log(JSON.stringify({ pr: criado.data.html_url, numero: criado.data.number, rascunho: criado.data.draft }));

@@ -1,17 +1,21 @@
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 const dir = new URL("../docs/avaliacao/", import.meta.url);
 await mkdir(dir, { recursive: true });
+let publicado = null;
+try { publicado = JSON.parse(await readFile(new URL("trello-publicado.json", dir), "utf8")); }
+catch (error) { if (error.code !== "ENOENT") throw error; }
+const criadoNoServico = Boolean(publicado?.quadro?.url);
 
 const prConsolidacao = "https://github.com/javagirardi/projetoFinalApiPetFullstack/pull/1";
 const listas = ["Product Backlog", "Sprint Backlog", "Em andamento", "Em revisão (Pull Request aberto)", "Concluído"];
 const requisito = (numero, titulo, modulo, criterios, evidencias) => ({
-  id: numero, titulo: `${numero} ${titulo}`, lista: "Em revisão (Pull Request aberto)", etiquetas: [modulo], responsavel: "proprietario_do_quadro",
-  descricao: `Trabalho individual. Implementação publicada em PR de consolidação em rascunho; aguarda conferência independente e revisão. PR: ${prConsolidacao}\nEscopo funcional: somente módulos 2 e 3.\nEvidências: ${evidencias.join("; ")}.`,
+  id: numero, titulo: `${numero} ${titulo}`, lista: "Concluído", etiquetas: [modulo], responsavel: "proprietario_do_quadro",
+  descricao: `Trabalho individual. Implementação integrada na develop pelo PR #1 em 18/10/2026. Conferência do documento e código realizada; 36 testes e build aprovados. PR: ${prConsolidacao}\nEscopo funcional: somente módulos 2 e 3. Limites de navegação em docs/CONTRATOS.md.\nEvidências: ${evidencias.join("; ")}.\nA separação dos commits por requisito foi organizada posteriormente; veja docs/avaliacao/HISTORICO_REQUISITOS.md.`,
   checklist: [
     ...criterios.map((nome) => ({ nome, concluido: true })),
     { nome: "PR referenciado na especificação local; vincular ao cartão real quando o quadro for criado", concluido: true },
-    { nome: "Revisar o PR e corrigir os apontamentos", concluido: false },
-    { nome: "Integrar por merge na develop antes de mover para Concluído", concluido: false },
+    { nome: "Conferir o documento, o código, os testes e o build", concluido: true },
+    { nome: "Integrar por merge na develop antes de mover para Concluído", concluido: true },
   ], pr: prConsolidacao,
 });
 const cards = [
@@ -59,14 +63,29 @@ const cards = [
     "Preencher/limpar data e motivo por transação sem excluir histórico",
     "Preservar situação calculada, pedidos e históricos após arquivamento/restauração",
   ], ["backend/src/modules/pets.js", "frontend/src/pages/PetList.jsx", "backend/test/modules.test.js"]),
-  { id: "G1", titulo: "G1 Git Flow e revisão (3,0 pontos)", lista: "Sprint Backlog", etiquetas: ["Geral"], responsavel: "proprietario_do_quadro", descricao: "Destino único autorizado: https://github.com/javagirardi/projetoFinalApiPetFullstack. Conta autenticada e repositório pessoal criado. Branch de consolidação feature/modulos-2-e-3 a partir do template oficial. PR de consolidação #1 aberto em rascunho para develop. Conferir os links e o estado real em DESTINOS_GITHUB.md; não simular histórico retroativo ou declarar merges pendentes como concluídos.", checklist: ["Conferir publicação e branches do repositório pessoal", "Preservar a referência oficial e preparar develop/main", "Criar feature/ por funcionalidade e fix/ por correção a partir da develop", "Commits pequenos por requisito/parte com mensagens claras", "Integrar em develop somente por PR; linkar cartões", "PR final develop → main, sem commits diretos em main"].map((nome) => ({ nome, concluido: false })) },
-  { id: "G2", titulo: "G2 Trello e Scrum individual (1,0 ponto)", lista: "Sprint Backlog", etiquetas: ["Geral"], responsavel: "proprietario_do_quadro", descricao: "Quadro solicitado: Lab365PetAmigo. Ainda não criado no serviço: falta acesso autenticado. Professor como Product Owner; trabalho individual informado pelo usuário. Não inventar participantes, reuniões ou rodízios.", checklist: ["Criar o quadro com as cinco listas e atribuir os cartões a si", "Adicionar o professor como membro após obter sua identificação e autorização de convite", "Registrar meta, planejamento e movimentações reais da sprint", "Registrar daily de até 15 minutos nos dias de aula que ocorrerem", "Registrar revisão/retrospectiva real, sem retroagir datas", "Mover para Concluído somente após merge na develop"].map((nome) => ({ nome, concluido: false })) },
+  { id: "G1", titulo: "G1 Git Flow e revisão (3,0 pontos)", lista: "Em andamento", etiquetas: ["Geral"], responsavel: "proprietario_do_quadro", descricao: "Destino único: https://github.com/javagirardi/projetoFinalApiPetFullstack. PR #1 integrado na develop em 18/10/2026. Histórico reorganizado posteriormente em commits da base e dos requisitos 2.1–3.4, sem alterar o código final. O PR original continua sendo a integração consolidada; não existem PRs anteriores por requisito. PR final develop → main pendente. Estado real em DESTINOS_GITHUB.md e HISTORICO_REQUISITOS.md.", checklist: [
+    { nome: "Conferir publicação e branches do repositório pessoal", concluido: true },
+    { nome: "Documentar a referência oficial e preservar main/develop", concluido: true },
+    { nome: "Organizar commits por requisito com mensagens claras", concluido: true },
+    { nome: "Integrar implementação na develop pelo PR #1", concluido: true },
+    { nome: "Vincular os cartões reais ao PR de implementação", concluido: criadoNoServico },
+    { nome: "PR final develop → main, sem commits diretos em main", concluido: false },
+  ] },
+  { id: "G2", titulo: "G2 Trello e Scrum individual (1,0 ponto)", lista: criadoNoServico ? "Em andamento" : "Sprint Backlog", etiquetas: ["Geral"], responsavel: "proprietario_do_quadro", descricao: `Quadro solicitado: Lab365PetAmigo. ${criadoNoServico ? `Quadro criado: ${publicado.quadro.url}.` : "Criação no serviço aguarda login na aba desta conversa."} Professor será adicionado posteriormente, por orientação do usuário em 18/10/2026. Trabalho individual, sem participantes ou cerimônias presumidos.`, checklist: [
+    { nome: "Criar o quadro com as cinco listas e atribuir os cartões a si", concluido: criadoNoServico },
+    { nome: "Adicionar o professor como membro quando sua identificação for fornecida", concluido: Boolean(publicado?.professor_adicionado) },
+    { nome: "Registrar meta, planejamento e movimentações reais da sprint", concluido: criadoNoServico },
+    { nome: "Registrar daily de até 15 minutos nos dias de aula que ocorrerem", concluido: false },
+    { nome: "Registrar revisão e retrospectiva com os fatos da sprint", concluido: false },
+    { nome: "Mover os requisitos para Concluído somente após merge na develop", concluido: criadoNoServico },
+  ] },
   { id: "SPRINT-1", titulo: "Sprint 1 — módulos 2 e 3", lista: "Sprint Backlog", etiquetas: ["Geral"], responsavel: "proprietario_do_quadro", descricao: "Planejamento proposto em 17/10/2026, sem afirmar início ou cerimônias anteriores. Janela de duas semanas: 17 a 30/10/2026. A entrega avaliativa é antecipada em 19/10/2026 às 23h55; não pode esperar o fim da sprint. Meta: validar módulos 2/3, conferência oficial, revisão e preparação da entrega. Registrar resultados reais; confirmar a adaptação do Scrum para trabalho individual com o professor.", checklist: ["Registrar planejamento e meta", "Revisar evidências e pendências antes de 19/10", "Conferir atividade correta no AVA e enviar dentro do prazo", "Apresentação individual de até 5 minutos, salvo orientação diferente", "Registrar revisão e retrospectiva com fatos e pendências"].map((nome) => ({ nome, concluido: false })) },
-  { id: "CONTATO", titulo: "Contato WhatsApp e termo demonstrativo", lista: "Em andamento", etiquetas: ["Módulo 2"], responsavel: "proprietario_do_quadro", descricao: "Contato autorizado pelo usuário configurado no ambiente local e no exemplo de configuração. Link contextual por pedido ativo, sem envio automático de mensagens. Termo lorem ipsum identificado e autorizado. Coberto pelo PR de consolidação #1, em rascunho; aguarda revisão e merge.", checklist: [{ nome: "Manter termo demonstrativo identificado", concluido: true }, { nome: "Configurar contato autorizado e conferir destino/mensagem dos links", concluido: true }, { nome: "Linkar PR, revisar e integrar em develop", concluido: false }] },
+  { id: "CONTATO", titulo: "Contato WhatsApp e termo demonstrativo", lista: "Concluído", etiquetas: ["Módulo 2"], responsavel: "proprietario_do_quadro", descricao: `Contato autorizado configurado no ambiente local e no exemplo. Link contextual por pedido ativo, sem envio automático de mensagens. Termo lorem ipsum identificado e autorizado. Integrado na develop pelo PR #1 em 18/10/2026. PR: ${prConsolidacao}`, checklist: [{ nome: "Manter termo demonstrativo identificado", concluido: true }, { nome: "Configurar contato autorizado e conferir destino/mensagem dos links", concluido: true }, { nome: "Conferir e integrar em develop pelo PR #1", concluido: true }], pr: prConsolidacao },
 ];
-const board = { nome: "Lab365PetAmigo", criado_no_servico: false, visibilidade_proposta: "public", observacao_visibilidade: "O exemplo do anexo usa Público. Publicar apenas requisitos e links; nunca credenciais, arquivos .env ou dados pessoais.", trabalho: "individual", escopo: [2, 3], timezone: "America/Sao_Paulo", prazo_avaliacao: "2026-10-19T23:55:00-03:00", listas, etiquetas: [{ nome: "Módulo 2", cor: "blue" }, { nome: "Módulo 3", cor: "green" }, { nome: "Geral", cor: "purple" }], cards };
+for (const card of cards) if (publicado?.cartoes?.[card.id]) card.url = publicado.cartoes[card.id].url;
+const board = { nome: "Lab365PetAmigo", criado_no_servico: criadoNoServico, url: publicado?.quadro?.url || null, visibilidade_proposta: "public", observacao_visibilidade: "O exemplo do anexo usa Público. Publicar apenas requisitos e links; nunca credenciais, arquivos .env ou dados pessoais.", trabalho: "individual", escopo: [2, 3], timezone: "America/Sao_Paulo", prazo_avaliacao: "2026-10-19T23:55:00-03:00", listas, etiquetas: [{ nome: "Módulo 2", cor: "blue" }, { nome: "Módulo 3", cor: "green" }, { nome: "Geral", cor: "purple" }], cards };
 await writeFile(new URL("trello.json", dir), JSON.stringify(board, null, 2) + "\n");
-let md = "# Quadro Lab365PetAmigo — preparação para revisão\n\nAinda não criado no Trello: falta acesso autenticado. Este arquivo e trello.json são a especificação pronta para publicação, não comprovantes de execução.\n\nTrabalho individual. Escopo: módulos 2 e 3. Listas: " + listas.join(" → ") + ".\n\n";
-for (const card of cards) md += `## ${card.titulo}\n\nLista: ${card.lista}. Responsável: proprietário do quadro. Etiquetas: ${card.etiquetas.join(", ")}.\n\n${card.descricao}\n\n${card.checklist.map((i) => `- [${i.concluido ? "x" : " "}] ${i.nome}`).join("\n")}\n\n`;
+let md = "# Quadro Lab365PetAmigo\n\n" + (criadoNoServico ? `Quadro publicado: ${publicado.quadro.url}. Os endereços reais dos cartões estão registrados abaixo.\n\n` : "Ainda não criado no Trello: aguardando login na aba desta conversa. Este arquivo e trello.json descrevem o quadro a criar, sem comprovar ações no serviço.\n\n") + "Trabalho individual. Escopo: módulos 2 e 3. Professor será adicionado posteriormente. Listas: " + listas.join(" → ") + ".\n\n";
+for (const card of cards) md += `## ${card.titulo}\n\nLista: ${card.lista}. Responsável: proprietário do quadro. Etiquetas: ${card.etiquetas.join(", ")}.${card.url ? ` Cartão: ${card.url}.` : ""}\n\n${card.descricao}\n\n${card.checklist.map((i) => `- [${i.concluido ? "x" : " "}] ${i.nome}`).join("\n")}\n\n`;
 await writeFile(new URL("TRELLO.md", dir), md.trimEnd() + "\n");
-console.log(`Quadro Lab365PetAmigo preparado localmente com ${listas.length} listas e ${cards.length} cartões. Nenhuma ação executada no Trello.`);
+console.log(`Especificação local atualizada: ${listas.length} listas e ${cards.length} cartões. Quadro publicado: ${criadoNoServico ? "sim" : "não"}. Esta execução não acessa o Trello.`);

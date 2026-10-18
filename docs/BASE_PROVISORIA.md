@@ -29,7 +29,7 @@ As pastas originais não foram movidas nem alteradas. Na nova entrega, a raiz us
 - Cliente HTTP com Bearer e erros por campo; sessão e retorno interno à origem.
 - Menus e rotas protegidas restritos às funcionalidades da entrega.
 - Configuração local sem credenciais no código versionado.
-- Repositório pessoal `javagirardi/projetoFinalApiPetFullstack` criado e configurado em origin. Conta javagirardi autenticada. Branch de consolidação `feature/modulos-2-e-3`; main/develop partem do commit oficial 67e6190. Estado da publicação em `docs/avaliacao/DESTINOS_GITHUB.md`.
+- Repositório pessoal `javagirardi/projetoFinalApiPetFullstack` criado e configurado em origin. PR #1 integrado na develop em 18/10/2026; main ainda contém a base local `10b579b`. Estado real em `docs/avaliacao/DESTINOS_GITHUB.md`.
 - Migração e restrições verificadas em PostgreSQL em memória (PGlite), incluindo coerência entre colunas das entidades e banco criado; nenhum acesso ao banco antigo nesses testes.
 - Banco `lab365petamigo_modulo4` criado no PostgreSQL local, migrado e preenchido com catálogos e conta inicial.
 - Cadastro público completo do lar, com ViaCEP, máscaras, confirmação/aceite no frontend e conflitos de e-mail em ambos os perfis.
@@ -40,12 +40,12 @@ As pastas originais não foram movidas nem alteradas. Na nova entrega, a raiz us
 - Termo demonstrativo lorem ipsum autorizado pelo usuário e WhatsApp autorizado configurado, com link contextual por pedido ativo.
 - Header/AdminLayout adaptados ao escopo oficial. Telas vazias e auxiliares de funcionalidades adicionais removidos; consultas e travas necessárias à gestão de pets permanecem dentro do módulo 3.
 - Referências oficiais documentadas, CI/modelo de PR e especificação do quadro Lab365PetAmigo com cinco listas e 11 cartões.
-- Commit da implementação publicado em feature/modulos-2-e-3; main/develop com a base oficial e PR #1 aberto em rascunho. CI do commit da implementação aprovada no GitHub; revisão e merges pendentes.
+- Implementação integrada na develop pelo PR #1. Commits reorganizados posteriormente por requisito, com código final preservado; mapa em `docs/avaliacao/HISTORICO_REQUISITOS.md`. A integração final em main está pendente.
 
 ## Pendente
 
-- Conferir o PR #1 (rascunho) da consolidação, resolver os apontamentos da auditoria e integrar em develop; depois abrir o PR final para main. Não declarar o Git Flow concluído antes desses merges.
-- Criar o quadro Lab365PetAmigo no Trello quando o acesso for habilitado e registrar os PRs/merges reais. Os arquivos em `docs/avaliacao/` são a preparação revisável, não um quadro publicado.
+- Concluir a conferência manual final e abrir o PR final develop → main. O PR #1 já foi integrado em develop.
+- Publicar e conferir o quadro Lab365PetAmigo no Trello. Estado e links reais em `docs/avaliacao/TRELLO.md`. O professor será adicionado posteriormente.
 - Validar a entrega dos módulos 2 e 3, registrar cartões/PRs e preparar apresentação/entrega.
 
 ## Decisões de contrato
