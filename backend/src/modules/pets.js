@@ -57,10 +57,22 @@ export function criarRotasPets({ dataSource, seguranca }) {
     const pets = await dataSource.getRepository("Pet").find({ relations, order: { id: "DESC" } });
     return res.json(pets.map(petPublico));
   });
+  router.get("/admin/pets/:id", ...equipe, async (req, res) => res.json(petPublico(await carregar(dataSource.manager, idPet(req)))));
   router.post("/pets", ...equipe, async (req, res) => {
     const dados = await conferirDados(req.body);
     const pet = await dataSource.getRepository("Pet").save(dados);
     return res.status(201).json(petPublico(await carregar(dataSource.manager, pet.id)));
+  });
+  router.put("/pets/:id", ...equipe, async (req, res) => {
+    const id = idPet(req);
+    const dados = await conferirDados(req.body, true);
+    const pet = await dataSource.transaction(async (manager) => {
+      const atual = await carregar(manager, id, true);
+      const { adocoes, ...base } = atual;
+      await manager.getRepository("Pet").save({ ...base, ...dados });
+      return carregar(manager, id);
+    });
+    return res.json(petPublico(pet));
   });
   return router;
 }
