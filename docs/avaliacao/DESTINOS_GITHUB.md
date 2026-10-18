@@ -21,11 +21,11 @@ Conferência de 18/10/2026: documento e código comparados, **36 testes e build 
 
 ## Trello
 
-Quadro solicitado: **Lab365PetAmigo**. Seu estado e os links reais, quando criado, estão em [TRELLO.md](TRELLO.md). A especificação local não substitui a publicação no serviço. O professor será adicionado posteriormente, conforme orientação do usuário em 18/10/2026.
+Quadro público criado em 18/10/2026: [Lab365PetAmigo](https://trello.com/b/LexKmACW/lab365petamigo). As cinco listas e os 11 cartões foram conferidos no serviço, com responsável, etiquetas, descrições e checklists. Os sete requisitos e o contato estão em Concluído; Git, gestão do quadro e sprint mantêm suas pendências reais. Links dos cartões em [TRELLO.md](TRELLO.md), com registro em `trello-publicado.json`. O professor será adicionado posteriormente, conforme orientação do usuário.
 
 ## Pendente para a entrega final
 
-1. Finalizar a publicação do Trello e conferir cartões, responsáveis e vínculos reais.
+1. Manter o quadro atualizado com o andamento real das pendências da entrega.
 2. Adicionar o professor quando sua identificação for fornecida.
 3. Abrir e integrar o PR final de `develop` para `main`; depois usar `main` como branch padrão.
 4. Preparar a apresentação individual de até cinco minutos.

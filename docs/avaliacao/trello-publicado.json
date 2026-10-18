@@ -1,0 +1,417 @@
+{
+  "quadro": {
+    "nome": "Lab365PetAmigo",
+    "url": "https://trello.com/b/LexKmACW/lab365petamigo",
+    "short_link": "LexKmACW",
+    "visibilidade": "public",
+    "data_criacao": "2026-10-18"
+  },
+  "responsavel": {
+    "nome": "Javan Moises Girardi",
+    "usuario": "javanmoisesgirardi"
+  },
+  "professor_adicionado": false,
+  "cartoes": {
+    "2.1": {
+      "url": "https://trello.com/c/xxWCb5FY/1-21-login-e-sess%C3%A3o-por-perfil",
+      "lista": "Concluído",
+      "etiquetas": [
+        "Módulo 2"
+      ],
+      "responsavel": "javanmoisesgirardi",
+      "checklist": [
+        {
+          "nome": "Login por e-mail/senha; API retorna sessão plana com role admin/lar",
+          "concluido": true
+        },
+        {
+          "nome": "Persistir somente token e DTO público na chave @dadoslogin",
+          "concluido": true
+        },
+        {
+          "nome": "Proteger rotas e distinguir 401/403; logout e sessão inválida tratados",
+          "concluido": true
+        },
+        {
+          "nome": "Preservar redirectTo e petId entre login/cadastro, conforme requisito 2.1",
+          "concluido": true
+        },
+        {
+          "nome": "Vincular o cartão ao PR #1 de implementação",
+          "concluido": true
+        },
+        {
+          "nome": "Conferir o documento, o código, os testes e o build",
+          "concluido": true
+        },
+        {
+          "nome": "Integrar por merge na develop antes de mover para Concluído",
+          "concluido": true
+        }
+      ]
+    },
+    "2.2": {
+      "url": "https://trello.com/c/sK2Ttw1m/2-22-cadastro-do-lar-adotivo",
+      "lista": "Concluído",
+      "etiquetas": [
+        "Módulo 2"
+      ],
+      "responsavel": "javanmoisesgirardi",
+      "checklist": [
+        {
+          "nome": "Campos, máscaras e ViaCEP com alternativa de endereço manual",
+          "concluido": true
+        },
+        {
+          "nome": "Validação no frontend/API, bcrypt e conflito de e-mail entre perfis",
+          "concluido": true
+        },
+        {
+          "nome": "Confirmar senha/aceite somente no frontend, sem enviar à API",
+          "concluido": true
+        },
+        {
+          "nome": "Retornar ao login sem autenticar, com mensagem, e-mail e origem",
+          "concluido": true
+        },
+        {
+          "nome": "Termo lorem ipsum demonstrativo identificado, conforme solicitado",
+          "concluido": true
+        },
+        {
+          "nome": "Vincular o cartão ao PR #1 de implementação",
+          "concluido": true
+        },
+        {
+          "nome": "Conferir o documento, o código, os testes e o build",
+          "concluido": true
+        },
+        {
+          "nome": "Integrar por merge na develop antes de mover para Concluído",
+          "concluido": true
+        }
+      ]
+    },
+    "2.3": {
+      "url": "https://trello.com/c/0XCTf7ZM/3-23-minhas-ado%C3%A7%C3%B5es",
+      "lista": "Concluído",
+      "etiquetas": [
+        "Módulo 2"
+      ],
+      "responsavel": "javanmoisesgirardi",
+      "checklist": [
+        {
+          "nome": "Isolar pedidos pelo ID do lar no token; equipe não acessa",
+          "concluido": true
+        },
+        {
+          "nome": "Pedidos recentes primeiro e histórico cronológico",
+          "concluido": true
+        },
+        {
+          "nome": "Três grupos com dados, etapas, respostas, motivos e datas do histórico",
+          "concluido": true
+        },
+        {
+          "nome": "Carregamento, erro, vazio e link para detalhe do pet; sem cancelamento pelo lar",
+          "concluido": true
+        },
+        {
+          "nome": "WhatsApp autorizado configurado com mensagem contextual por pedido ativo",
+          "concluido": true
+        },
+        {
+          "nome": "Vincular o cartão ao PR #1 de implementação",
+          "concluido": true
+        },
+        {
+          "nome": "Conferir o documento, o código, os testes e o build",
+          "concluido": true
+        },
+        {
+          "nome": "Integrar por merge na develop antes de mover para Concluído",
+          "concluido": true
+        }
+      ]
+    },
+    "3.1": {
+      "url": "https://trello.com/c/mF1PplMn/4-31-listagem-administrativa-de-pets",
+      "lista": "Concluído",
+      "etiquetas": [
+        "Módulo 3"
+      ],
+      "responsavel": "javanmoisesgirardi",
+      "checklist": [
+        {
+          "nome": "Acesso só da equipe; cards e situação calculada com cinco estados",
+          "concluido": true
+        },
+        {
+          "nome": "Busca por nome/raça; filtros por tipo e situação; arquivados separados",
+          "concluido": true
+        },
+        {
+          "nome": "Contagens, pedidos em andamento e link do adotante para /admin/lares/:id",
+          "concluido": true
+        },
+        {
+          "nome": "Ações de novo cadastro, edição, arquivamento e restauração",
+          "concluido": true
+        },
+        {
+          "nome": "Vincular o cartão ao PR #1 de implementação",
+          "concluido": true
+        },
+        {
+          "nome": "Conferir o documento, o código, os testes e o build",
+          "concluido": true
+        },
+        {
+          "nome": "Integrar por merge na develop antes de mover para Concluído",
+          "concluido": true
+        }
+      ]
+    },
+    "3.2": {
+      "url": "https://trello.com/c/1aU8gS7y/5-32-cadastro-de-pet",
+      "lista": "Concluído",
+      "etiquetas": [
+        "Módulo 3"
+      ],
+      "responsavel": "javanmoisesgirardi",
+      "checklist": [
+        {
+          "nome": "Catálogos públicos e envio dos IDs de tipo/raça/cor",
+          "concluido": true
+        },
+        {
+          "nome": "Obrigatórios, enums, idade inteira e opcionais nulos validados",
+          "concluido": true
+        },
+        {
+          "nome": "Prévia/erro da foto e erros de cada campo apresentados",
+          "concluido": true
+        },
+        {
+          "nome": "API retorna 201 com relacionamentos/situação; volta à lista com sucesso",
+          "concluido": true
+        },
+        {
+          "nome": "Vincular o cartão ao PR #1 de implementação",
+          "concluido": true
+        },
+        {
+          "nome": "Conferir o documento, o código, os testes e o build",
+          "concluido": true
+        },
+        {
+          "nome": "Integrar por merge na develop antes de mover para Concluído",
+          "concluido": true
+        }
+      ]
+    },
+    "3.3": {
+      "url": "https://trello.com/c/InQE2Kep/6-33-edi%C3%A7%C3%A3o-parcial-do-pet",
+      "lista": "Concluído",
+      "etiquetas": [
+        "Módulo 3"
+      ],
+      "responsavel": "javanmoisesgirardi",
+      "checklist": [
+        {
+          "nome": "Reutilizar formulário, carregar em GET /admin/pets/:id e tratar 404",
+          "concluido": true
+        },
+        {
+          "nome": "Editar pela rota canônica /admin/pets/:id do template",
+          "concluido": true
+        },
+        {
+          "nome": "PUT preserva campos/relações omitidos e rejeita atualização vazia",
+          "concluido": true
+        },
+        {
+          "nome": "Permitir edição dos arquivados e retornar à lista com sucesso",
+          "concluido": true
+        },
+        {
+          "nome": "Vincular o cartão ao PR #1 de implementação",
+          "concluido": true
+        },
+        {
+          "nome": "Conferir o documento, o código, os testes e o build",
+          "concluido": true
+        },
+        {
+          "nome": "Integrar por merge na develop antes de mover para Concluído",
+          "concluido": true
+        }
+      ]
+    },
+    "3.4": {
+      "url": "https://trello.com/c/sSJcfsPo/7-34-arquivamento-e-restaura%C3%A7%C3%A3o",
+      "lista": "Concluído",
+      "etiquetas": [
+        "Módulo 3"
+      ],
+      "responsavel": "javanmoisesgirardi",
+      "checklist": [
+        {
+          "nome": "Motivo obrigatório até 255 caracteres, solicitado dentro do card",
+          "concluido": true
+        },
+        {
+          "nome": "Bloquear arquivado, pedido ativo e adotado com mensagem",
+          "concluido": true
+        },
+        {
+          "nome": "Preencher/limpar data e motivo por transação sem excluir histórico",
+          "concluido": true
+        },
+        {
+          "nome": "Preservar situação calculada, pedidos e históricos após arquivamento/restauração",
+          "concluido": true
+        },
+        {
+          "nome": "Vincular o cartão ao PR #1 de implementação",
+          "concluido": true
+        },
+        {
+          "nome": "Conferir o documento, o código, os testes e o build",
+          "concluido": true
+        },
+        {
+          "nome": "Integrar por merge na develop antes de mover para Concluído",
+          "concluido": true
+        }
+      ]
+    },
+    "G1": {
+      "url": "https://trello.com/c/hF3afsKn/9-g1-git-flow-e-revis%C3%A3o-30-pontos",
+      "lista": "Em andamento",
+      "etiquetas": [
+        "Geral"
+      ],
+      "responsavel": "javanmoisesgirardi",
+      "checklist": [
+        {
+          "nome": "Conferir publicação e branches do repositório pessoal",
+          "concluido": true
+        },
+        {
+          "nome": "Documentar a referência oficial e preservar main/develop",
+          "concluido": true
+        },
+        {
+          "nome": "Organizar commits por requisito com mensagens claras",
+          "concluido": true
+        },
+        {
+          "nome": "Integrar implementação na develop pelo PR #1",
+          "concluido": true
+        },
+        {
+          "nome": "Vincular os cartões reais ao PR de implementação",
+          "concluido": true
+        },
+        {
+          "nome": "PR final develop → main, sem commits diretos em main",
+          "concluido": false
+        }
+      ]
+    },
+    "G2": {
+      "url": "https://trello.com/c/x1KQbdDI/10-g2-trello-e-scrum-individual-10-ponto",
+      "lista": "Em andamento",
+      "etiquetas": [
+        "Geral"
+      ],
+      "responsavel": "javanmoisesgirardi",
+      "checklist": [
+        {
+          "nome": "Criar o quadro com as cinco listas e atribuir os cartões a si",
+          "concluido": true
+        },
+        {
+          "nome": "Adicionar o professor como membro quando sua identificação for fornecida",
+          "concluido": false
+        },
+        {
+          "nome": "Registrar meta, planejamento e movimentações reais da sprint",
+          "concluido": true
+        },
+        {
+          "nome": "Registrar daily de até 15 minutos nos dias de aula que ocorrerem",
+          "concluido": false
+        },
+        {
+          "nome": "Registrar revisão e retrospectiva com os fatos da sprint",
+          "concluido": false
+        },
+        {
+          "nome": "Mover os requisitos para Concluído somente após merge na develop",
+          "concluido": true
+        }
+      ]
+    },
+    "SPRINT-1": {
+      "url": "https://trello.com/c/kIYwuxMx/11-sprint-1-m%C3%B3dulos-2-e-3",
+      "lista": "Sprint Backlog",
+      "etiquetas": [
+        "Geral"
+      ],
+      "responsavel": "javanmoisesgirardi",
+      "checklist": [
+        {
+          "nome": "Registrar planejamento e meta",
+          "concluido": true
+        },
+        {
+          "nome": "Revisar evidências e pendências antes de 19/10",
+          "concluido": true
+        },
+        {
+          "nome": "Conferir atividade correta no AVA e enviar dentro do prazo",
+          "concluido": false
+        },
+        {
+          "nome": "Apresentação individual de até 5 minutos, salvo orientação diferente",
+          "concluido": false
+        },
+        {
+          "nome": "Registrar revisão e retrospectiva com fatos e pendências",
+          "concluido": false
+        }
+      ]
+    },
+    "CONTATO": {
+      "url": "https://trello.com/c/Oaea0JB2/8-contato-whatsapp-e-termo-demonstrativo",
+      "lista": "Concluído",
+      "etiquetas": [
+        "Módulo 2"
+      ],
+      "responsavel": "javanmoisesgirardi",
+      "checklist": [
+        {
+          "nome": "Manter termo demonstrativo identificado",
+          "concluido": true
+        },
+        {
+          "nome": "Configurar contato autorizado e conferir destino/mensagem dos links",
+          "concluido": true
+        },
+        {
+          "nome": "Conferir e integrar em develop pelo PR #1",
+          "concluido": true
+        }
+      ]
+    }
+  },
+  "conferencia": {
+    "data": "2026-10-18",
+    "cartoes": 11,
+    "listas": 5,
+    "criterios": 71,
+    "aprovada": true
+  }
+}
