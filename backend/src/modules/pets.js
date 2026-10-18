@@ -74,5 +74,27 @@ export function criarRotasPets({ dataSource, seguranca }) {
     });
     return res.json(petPublico(pet));
   });
+  router.patch("/pets/:id/arquivar", ...equipe, async (req, res) => {
+    const id = idPet(req);
+    const { dados, erros } = validarMotivo(req.body);
+    if (Object.keys(erros).length) throw new HttpError(400, "Informe o motivo do arquivamento.", erros);
+    const pet = await dataSource.transaction(async (manager) => {
+      const pet = await carregar(manager, id, true);
+      exigirPetArquivavel(pet);
+      await manager.getRepository("Pet").update(id, { arquivado_em: new Date(), motivo_arquivamento: dados.motivo });
+      return carregar(manager, id);
+    });
+    return res.json(petPublico(pet));
+  });
+  router.patch("/pets/:id/restaurar", ...equipe, async (req, res) => {
+    const id = idPet(req);
+    const pet = await dataSource.transaction(async (manager) => {
+      const pet = await carregar(manager, id, true);
+      if (!pet.arquivado_em) throw new HttpError(409, "Este pet não está arquivado.");
+      await manager.getRepository("Pet").update(id, { arquivado_em: null, motivo_arquivamento: null });
+      return carregar(manager, id);
+    });
+    return res.json(petPublico(pet));
+  });
   return router;
 }
