@@ -31,8 +31,10 @@ Os limites dos destinos de navegação e o escopo oficial continuam descritos em
 
 Em 18/10/2026 foi identificado que o limite de 1240 px ocupava aproximadamente 65% da largura de uma tela de 1920 px. O conteúdo das páginas e o cabeçalho passaram a compartilhar margens laterais proporcionais, sem esse limite fixo. A listagem mede aproximadamente 1790 px em 1920×1080, cerca de 94% da área disponível descontando a barra de rolagem.
 
-- Quatro cartões por linha a partir de 1440 px, mantendo a adaptação para telas menores.
-- Formulários usam a largura da página e três colunas em telas amplas. O cartão de login e as fotografias mantêm limites próprios de leitura e proporção.
-- Listagem conferida em 1920×1080, 1366×768, 1080×1080 e 390×844, sem rolagem horizontal e com fotos carregadas.
+- As grades calculam a quantidade de colunas pelo espaço disponível (`auto-fill`/`auto-fit`), sem quantidades fixas por resolução. A listagem apresenta uma coluna no celular, duas em 768/1080 px, três em 1366 px, quatro em Full HD e seis em 2560 px.
+- Formulários usam a largura da página e reorganizam os campos automaticamente. Fotos dos cartões mantêm proporção 16:10, acompanhando sua largura.
+- Login usa duas áreas em telas amplas e uma coluna até 960 px, sem limitar a página a 520 px em tablets. O cabeçalho estreito coloca navegação em uma segunda linha e mantém a saída acessível.
+- Margens e espaçamentos variam com a largura; textos longos podem quebrar linha, e filtros passam a uma coluna nos celulares.
+- Listagem conferida em larguras de 280, 320, 375, 390, 520, 600, 640, 768, 800, 960, 1024, 1080, 1366, 1440, 1920 e 2560 px, sem rolagem horizontal e com fotos carregadas. São amostras de verificação de um layout fluido, não uma lista fechada de resoluções suportadas.
 - Cadastro/edição de pet, cadastro do lar, login e Minhas adoções conferidos em desktop e celular, sem gravar alterações nos dados de demonstração.
 - Build de produção aprovado. Nenhum requisito funcional foi acrescentado.
