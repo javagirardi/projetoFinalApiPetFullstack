@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { ROTAS, validarPet } from "@lab365/contracts";
 import Field from "../components/Field.jsx";
+import PageIntro from "../components/PageIntro.jsx";
+import Icon from "../components/Icon.jsx";
+import PetPhoto from "../components/PetPhoto.jsx";
 import { api } from "../services/api.js";
 const inicial = { nome: "", tipo_id: "", raca_id: "", cor_id: "", porte: "", sexo: "", idade_meses: "", foto_url: "", historia: "", comportamento: "", observacoes_extras: "" };
 function payload(form) {
@@ -42,7 +45,7 @@ export default function PetForm() {
   if (!base) return <div role="alert"><p>{erro}</p><button className="btn-voltar" onClick={() => setTentativa((n) => n + 1)}>Tentar novamente</button></div>;
   const campo = (name, label, props = {}) => <Field key={name} name={name} label={label} erros={erros} value={form[name]} onChange={alterar} {...props} />;
   const select = (name, label, options, required = false) => <Field key={name} name={name} label={label} erros={erros}>{(props) => <select {...props} value={form[name]} onChange={alterar} required={required}><option value="">{required ? "Selecione" : "Não informado"}</option>{options.map(([value, label]) => <option key={value} value={value}>{label}</option>)}</select>}</Field>;
-  return <section className="pagina-formulario"><div className="form-cabecalho"><h1 className="pagina-titulo">{id ? "Editar pet" : "Cadastrar pet"}</h1><Link className="btn-voltar" to={ROTAS.ADMIN_PETS}>Voltar à listagem</Link></div>
+  return <section className="pagina-formulario"><PageIntro categoria="ÁREA DA EQUIPE" titulo={id ? "Editar pet" : "Cadastrar pet"} descricao={id ? "Cada detalhe ajuda a contar essa história." : "Uma nova história começa com o primeiro cuidado."}><Link className="btn-voltar" to={ROTAS.ADMIN_PETS}><Icon name="back" size={16} /> Voltar à listagem</Link></PageIntro>
     <form onSubmit={salvar} className="formulario-pet" noValidate>{erro && <p className="mensagem-erro" role="alert">{erro}</p>}{erros.formulario && <p className="mensagem-erro" role="alert">{erros.formulario}</p>}
       <fieldset disabled={salvando}><legend>Dados do pet</legend><div className="form-grade">
         {campo("nome", "Nome *", { maxLength: 100, required: true })}
@@ -54,7 +57,7 @@ export default function PetForm() {
         {campo("idade_meses", "Idade em meses", { type: "number", min: 0, step: 1 })}
         {campo("foto_url", "Link da foto", { type: "url", maxLength: 255, placeholder: "https://…" })}
       </div></fieldset>
-      {form.foto_url && (/^https?:\/\//i.test(form.foto_url) && !fotoErro ? <div className="preview-imagem"><p>Prévia da foto</p><img src={form.foto_url} alt="Prévia do pet" onError={() => setFotoErro(true)} /></div> : <p role="status" className="ajuda">Não foi possível carregar a foto. Confira o link informado.</p>)}
+      <div className="preview-imagem"><PetPhoto src={/^https?:\/\//i.test(form.foto_url) ? form.foto_url : undefined} nome={form.nome || "pet"} className="preview-foto" onUnavailable={() => setFotoErro(true)} /><div><span className="sobretitulo">PRÉVIA DA FOTO</span><h2>{form.nome || "Um novo amigo"}</h2><p className="ajuda">Uma boa foto ajuda a mostrar toda a personalidade do pet.</p>{form.foto_url && (fotoErro || !/^https?:\/\//i.test(form.foto_url)) && <p role="status" className="erro-campo">Não foi possível carregar a foto. Confira o link informado.</p>}</div></div>
       <fieldset disabled={salvando}><legend>História e cuidados</legend>{[["historia", "História"], ["comportamento", "Comportamento"], ["observacoes_extras", "Observações extras: vacinas, castração e cuidados especiais"]].map(([name, label]) => <Field key={name} name={name} label={label} erros={erros}>{(props) => <textarea {...props} className="campo-textarea" value={form[name]} onChange={alterar} rows={3} />}</Field>)}</fieldset>
       <button className="btn-primario" disabled={salvando}>{salvando ? "Salvando…" : "Salvar pet"}</button>
     </form>

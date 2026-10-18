@@ -1,14 +1,4 @@
-.layout { display: flex; min-height: 100vh; gap: 24px; }
-.menu { flex: 0 0 220px; padding: 24px; background: var(--azul); color: white; display: flex; flex-direction: column; align-items: flex-start; gap: 24px; }
-.menu p { line-height: 1.6; }
-.menu nav, .menu ul { width: 100%; }
-.menu ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-.menu a { color: white; text-decoration: none; padding: 8px 0; display: block; }
-.menu a[aria-current="page"] { color: var(--amarelo); font-weight: 700; }
-.conteudo { flex: 1; min-width: 0; padding: 32px 24px 32px 0; }
-@media (max-width: 800px) {
-  .layout { flex-direction: column; gap: 0; }
-  .menu { flex-basis: auto; padding: 16px; gap: 12px; }
-  .menu ul { flex-direction: row; flex-wrap: wrap; gap: 24px; }
-  .conteudo { padding: 24px 16px; }
-}
+.layout { display: flex; flex-direction: column; min-height: 100vh; }
+.conteudo { width: min(1240px, calc(100% - 64px)); margin: 0 auto; padding: 36px 0 55px; flex: 1; min-width: 0; }
+@media (max-width: 760px) { .conteudo { width: calc(100% - 36px); padding: 23px 0 40px; } }
+@media (max-width: 520px) { .conteudo { width: calc(100% - 28px); padding: 20px 0 35px; } }

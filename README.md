@@ -12,6 +12,8 @@ docs/       Contratos, origem e progresso da implementação
 scripts/    Preparação de arquivos locais de configuração
 ```
 
+O visual usa degradês em lilás e azul pastel, navegação compartilhada e fotografias recuperadas do projeto anterior. As imagens conhecidas ficam no próprio frontend. Confira a [direção visual e a origem das fotos](docs/VISUAL.md).
+
 As três pastas anteriores foram preservadas localmente e ignoradas pelo Git da nova entrega. Não devem ser usadas para iniciar os novos serviços.
 
 ## Preparar o ambiente

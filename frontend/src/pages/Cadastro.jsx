@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { MORADIA, ROTAS, UNIDADES_FEDERATIVAS, validarLar, contextoAutenticacao } from "@lab365/contracts";
 import Field from "../components/Field.jsx";
+import PageIntro from "../components/PageIntro.jsx";
 import { api } from "../services/api.js";
 import { mascaraCep, mascaraTelefone } from "../utils/format.js";
 
@@ -52,7 +53,7 @@ export default function Cadastro() {
   }
   const campo = (name, label, props = {}) => <Field key={name} name={name} label={label} erros={erros} value={form[name]} onChange={alterar} {...props} />;
   const select = (name, label, options) => <Field key={name} name={name} label={label} erros={erros}>{(props) => <select {...props} value={form[name]} onChange={alterar} required><option value="">Selecione</option>{options.map(([value, label]) => <option key={value} value={value}>{label}</option>)}</select>}</Field>;
-  return <section className="pagina-formulario"><h1 className="pagina-titulo">Cadastre seu lar</h1><p className="intro">Conte um pouco sobre quem vai receber o novo amigo.</p>
+  return <section className="pagina-formulario pagina-cadastro"><PageIntro categoria="UM NOVO COMEÇO" titulo="Cadastre seu lar" descricao="Conte um pouco sobre quem vai receber o novo amigo." />
     <form className="formulario-pet" onSubmit={salvar} noValidate>
       {erro && <p role="alert" className="mensagem-erro">{erro}</p>}
       <fieldset disabled={enviando}><legend>Dados do lar</legend><div className="form-grade">

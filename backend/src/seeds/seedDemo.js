@@ -21,14 +21,25 @@ try {
     if (!tipo || !raca || !cor) throw new Error("Execute npm run db:seed antes da demonstração.");
     const marcador = "Cadastro fictício para demonstração dos módulos 2 e 3.";
     const fixtures = [
-      ["Amora", null], ["Bento", "ANALISE"], ["Cacau", "APROVADA"], ["Dora", "CONCLUIDA"],
-      ["Estrela", "RECUSADA"], ["Fubá", "CANCELADA"], ["Guri", "ENTREVISTA"],
+      ["Amora", null, "photo-1548199973-03cce0bbc87b"],
+      ["Bento", "ANALISE", "photo-1505628346881-b72b27e84530"],
+      ["Cacau", "APROVADA", "photo-1552053831-71594a27632d"],
+      ["Dora", "CONCLUIDA", "photo-1477884213360-7e9d7dcc1e48"],
+      ["Estrela", "RECUSADA", "photo-1568393691622-c7ba131d63b4"],
+      ["Fubá", "CANCELADA", "photo-1605568427561-40dd23c2acea"],
+      ["Guri", "ENTREVISTA", "photo-1530281700549-e82e7bf110d6"],
     ];
-    for (const [nome, status] of fixtures) {
+    for (const [nome, status, foto] of fixtures) {
       const pets = manager.getRepository("Pet");
-      if (await pets.existsBy({ nome, historia: marcador })) continue;
+      const foto_url = `https://images.unsplash.com/${foto}?w=400`;
+      const existente = await pets.findOne({ where: { nome, historia: marcador }, select: { id: true, foto_url: true } });
+      if (existente) {
+        // Preenche só a foto ausente do exemplo, preservando alterações do usuário.
+        await pets.createQueryBuilder().update().set({ foto_url }).where("id = :id AND (foto_url IS NULL OR foto_url = '')", { id: existente.id }).execute();
+        continue;
+      }
       const arquivado = nome === "Fubá";
-      const pet = await pets.save({ nome, historia: marcador, tipo, raca, cor, porte: "M", idade_meses: 18,
+      const pet = await pets.save({ nome, historia: marcador, tipo, raca, cor, foto_url, porte: "M", idade_meses: 18,
         ...(arquivado ? { arquivado_em: new Date(), motivo_arquivamento: "Transferido para outra ONG — exemplo demonstrativo." } : {}) });
       if (!status) continue;
       const fluxo = status === "CONCLUIDA" ? ["ANALISE", "ENTREVISTA", "APROVADA", "CONCLUIDA"] : status === "APROVADA" ? ["ANALISE", "ENTREVISTA", "APROVADA"] : status === "ANALISE" ? ["ANALISE"] : ["ANALISE", status];
