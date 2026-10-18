@@ -1,45 +1,21 @@
-import "dotenv/config";
+import dataSource from "./config/database.js";
+import { carregarConfiguracao } from "./config/env.js";
+import { criarApp } from "./app.js";
+import { criarSeguranca } from "./auth/security.js";
+import { criarRepositorioAuth } from "./auth/repository.js";
 
-import express from "express";
-import cors from "cors";
-
-import { PORT_SERVER } from "./constants/server.js";
-import { AppDataSource } from "./config/database_postgres.js";
-
-import { captureLog } from "./middlewares/global/captureLog.js";
-import { errorHandler } from "./middlewares/global/errorHandler.js";
-import { validateJwtHandler } from "./middlewares/auth/validateJwtHandler.js";
-
-import authRoutes from "./routes/auth.routes.js";
-import publicRoutes from "./routes/public.routes.js";
-import petsRoutes from "./routes/pets.routes.js";
-import laresRoutes from "./routes/lares.routes.js";
-import adocoesRoutes from "./routes/adocoes.routes.js";
-import minhasAdocoesRoutes from "./routes/minhasAdocoes.routes.js";
-
-const app = express();
-app.use(express.json()); // habilita o servidor para reconhecer formato JSON
-app.use(cors());
-
-app.use(captureLog); // aplicando o middleware de forma global no inicio de cada rota
-
-app.use(publicRoutes); // login, cadastro do lar, vitrine de pets e listas (tipos, raças, cores)
-
-app.use(validateJwtHandler); // aplicar o token em todas as rotas abaixo
-app.use(authRoutes);
-app.use(petsRoutes);
-app.use(laresRoutes);
-app.use(adocoesRoutes);
-app.use(minhasAdocoesRoutes);
-
-app.use(errorHandler); // aplicando o middleware de forma global no fim de cada rota
-
+const config = carregarConfiguracao();
 try {
-  await AppDataSource.initialize();
-  const porta = Number(process.env.PORT) || PORT_SERVER;
-  app.listen(porta, () => {
-    console.log(`Servidor rodando na porta ${porta}`);
-  });
+  await dataSource.initialize();
+  if (await dataSource.showMigrations()) throw new Error("Há migrações pendentes. Prepare o banco novo e execute npm run db:migrate antes de iniciar a API.");
+  const app = criarApp({ config, seguranca: criarSeguranca(config), repositorioAuth: criarRepositorioAuth(dataSource), dataSource, verificarBanco: () => dataSource.query("SELECT 1") });
+  const server = app.listen(config.porta, () => console.log(`API em http://localhost:${config.porta}`));
+  server.on("error", async (error) => { console.error("Não foi possível abrir a porta da API:", error.code); await dataSource.destroy(); process.exitCode = 1; });
+  for (const signal of ["SIGINT", "SIGTERM"]) {
+    process.once(signal, () => server.close(async () => { await dataSource.destroy(); process.exitCode = 0; }));
+  }
 } catch (error) {
-  console.log("Erro ao conectar com o banco de dados", error);
+  console.error("Não foi possível iniciar a API:", error.code || error.message);
+  if (dataSource.isInitialized) await dataSource.destroy();
+  process.exitCode = 1;
 }

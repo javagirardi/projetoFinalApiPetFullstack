@@ -1,4 +1,16 @@
-node_modules
-dist
+node_modules/
+dist/
+coverage/
+*.log
 .env
+.env.*
+!.env.example
+.DS_Store
+.idea/
 .vscode/
+.template-oficial/
+
+# Etapas anteriores preservadas localmente; não fazem parte da nova entrega.
+/api_pets_equipe_7/
+/senai_projeto_site_pets-main/
+/servidor_api_pets/

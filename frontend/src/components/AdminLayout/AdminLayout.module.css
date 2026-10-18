@@ -1,8 +1,14 @@
-.layout {
-  display: flex;
-  gap: 24px;
-}
-
-.conteudo {
-  flex: 1;
+.layout { display: flex; min-height: 100vh; gap: 24px; }
+.menu { flex: 0 0 220px; padding: 24px; background: var(--azul); color: white; display: flex; flex-direction: column; align-items: flex-start; gap: 24px; }
+.menu p { line-height: 1.6; }
+.menu nav, .menu ul { width: 100%; }
+.menu ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.menu a { color: white; text-decoration: none; padding: 8px 0; display: block; }
+.menu a[aria-current="page"] { color: var(--amarelo); font-weight: 700; }
+.conteudo { flex: 1; min-width: 0; padding: 32px 24px 32px 0; }
+@media (max-width: 800px) {
+  .layout { flex-direction: column; gap: 0; }
+  .menu { flex-basis: auto; padding: 16px; gap: 12px; }
+  .menu ul { flex-direction: row; flex-wrap: wrap; gap: 24px; }
+  .conteudo { padding: 24px 16px; }
 }
