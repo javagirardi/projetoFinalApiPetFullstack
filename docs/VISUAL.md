@@ -26,3 +26,13 @@ As imagens do projeto anterior estavam referenciadas em `servidor_api_pets/data/
 - Nenhuma mensagem foi enviada pelo WhatsApp durante a verificação.
 
 Os limites dos destinos de navegação e o escopo oficial continuam descritos em `CONTRATOS.md`.
+
+## Correção da largura em Full HD
+
+Em 18/10/2026 foi identificado que o limite de 1240 px ocupava aproximadamente 65% da largura de uma tela de 1920 px. O conteúdo das páginas e o cabeçalho passaram a compartilhar margens laterais proporcionais, sem esse limite fixo. A listagem mede aproximadamente 1790 px em 1920×1080, cerca de 94% da área disponível descontando a barra de rolagem.
+
+- Quatro cartões por linha a partir de 1440 px, mantendo a adaptação para telas menores.
+- Formulários usam a largura da página e três colunas em telas amplas. O cartão de login e as fotografias mantêm limites próprios de leitura e proporção.
+- Listagem conferida em 1920×1080, 1366×768, 1080×1080 e 390×844, sem rolagem horizontal e com fotos carregadas.
+- Cadastro/edição de pet, cadastro do lar, login e Minhas adoções conferidos em desktop e celular, sem gravar alterações nos dados de demonstração.
+- Build de produção aprovado. Nenhum requisito funcional foi acrescentado.
