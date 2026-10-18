@@ -13,7 +13,7 @@ const requisito = (numero, titulo, modulo, criterios, evidencias) => ({
   descricao: `Trabalho individual. Implementação integrada na develop pelo PR #1 em 18/10/2026. Conferência do documento e código realizada; 36 testes e build aprovados. PR: ${prConsolidacao}\nEscopo funcional: somente módulos 2 e 3. Limites de navegação em docs/CONTRATOS.md.\nEvidências: ${evidencias.join("; ")}.\nA separação dos commits por requisito foi organizada posteriormente; veja docs/avaliacao/HISTORICO_REQUISITOS.md.`,
   checklist: [
     ...criterios.map((nome) => ({ nome, concluido: true })),
-    { nome: "PR referenciado na especificação local; vincular ao cartão real quando o quadro for criado", concluido: true },
+    { nome: "Vincular o cartão ao PR #1 de implementação", concluido: true },
     { nome: "Conferir o documento, o código, os testes e o build", concluido: true },
     { nome: "Integrar por merge na develop antes de mover para Concluído", concluido: true },
   ], pr: prConsolidacao,
@@ -82,10 +82,19 @@ const cards = [
   { id: "SPRINT-1", titulo: "Sprint 1 — módulos 2 e 3", lista: "Sprint Backlog", etiquetas: ["Geral"], responsavel: "proprietario_do_quadro", descricao: "Planejamento proposto em 17/10/2026, sem afirmar início ou cerimônias anteriores. Janela de duas semanas: 17 a 30/10/2026. A entrega avaliativa é antecipada em 19/10/2026 às 23h55; não pode esperar o fim da sprint. Meta: validar módulos 2/3, conferência oficial, revisão e preparação da entrega. Registrar resultados reais; confirmar a adaptação do Scrum para trabalho individual com o professor.", checklist: ["Registrar planejamento e meta", "Revisar evidências e pendências antes de 19/10", "Conferir atividade correta no AVA e enviar dentro do prazo", "Apresentação individual de até 5 minutos, salvo orientação diferente", "Registrar revisão e retrospectiva com fatos e pendências"].map((nome) => ({ nome, concluido: false })) },
   { id: "CONTATO", titulo: "Contato WhatsApp e termo demonstrativo", lista: "Concluído", etiquetas: ["Módulo 2"], responsavel: "proprietario_do_quadro", descricao: `Contato autorizado configurado no ambiente local e no exemplo. Link contextual por pedido ativo, sem envio automático de mensagens. Termo lorem ipsum identificado e autorizado. Integrado na develop pelo PR #1 em 18/10/2026. PR: ${prConsolidacao}`, checklist: [{ nome: "Manter termo demonstrativo identificado", concluido: true }, { nome: "Configurar contato autorizado e conferir destino/mensagem dos links", concluido: true }, { nome: "Conferir e integrar em develop pelo PR #1", concluido: true }], pr: prConsolidacao },
 ];
-for (const card of cards) if (publicado?.cartoes?.[card.id]) card.url = publicado.cartoes[card.id].url;
+for (const card of cards) {
+  const registro = publicado?.cartoes?.[card.id];
+  if (!registro) continue;
+  card.url = registro.url;
+  card.lista = registro.lista;
+  card.responsavel = registro.responsavel;
+  card.checklist = card.checklist.map((item) => ({ ...item,
+    concluido: registro.checklist?.find((salvo) => salvo.nome === item.nome)?.concluido ?? item.concluido,
+  }));
+}
 const board = { nome: "Lab365PetAmigo", criado_no_servico: criadoNoServico, url: publicado?.quadro?.url || null, visibilidade_proposta: "public", observacao_visibilidade: "O exemplo do anexo usa Público. Publicar apenas requisitos e links; nunca credenciais, arquivos .env ou dados pessoais.", trabalho: "individual", escopo: [2, 3], timezone: "America/Sao_Paulo", prazo_avaliacao: "2026-10-19T23:55:00-03:00", listas, etiquetas: [{ nome: "Módulo 2", cor: "blue" }, { nome: "Módulo 3", cor: "green" }, { nome: "Geral", cor: "purple" }], cards };
 await writeFile(new URL("trello.json", dir), JSON.stringify(board, null, 2) + "\n");
 let md = "# Quadro Lab365PetAmigo\n\n" + (criadoNoServico ? `Quadro publicado: ${publicado.quadro.url}. Os endereços reais dos cartões estão registrados abaixo.\n\n` : "Ainda não criado no Trello: aguardando login na aba desta conversa. Este arquivo e trello.json descrevem o quadro a criar, sem comprovar ações no serviço.\n\n") + "Trabalho individual. Escopo: módulos 2 e 3. Professor será adicionado posteriormente. Listas: " + listas.join(" → ") + ".\n\n";
-for (const card of cards) md += `## ${card.titulo}\n\nLista: ${card.lista}. Responsável: proprietário do quadro. Etiquetas: ${card.etiquetas.join(", ")}.${card.url ? ` Cartão: ${card.url}.` : ""}\n\n${card.descricao}\n\n${card.checklist.map((i) => `- [${i.concluido ? "x" : " "}] ${i.nome}`).join("\n")}\n\n`;
+for (const card of cards) md += `## ${card.titulo}\n\nLista: ${card.lista}. Responsável: ${publicado?.responsavel?.nome || "proprietário do quadro"}. Etiquetas: ${card.etiquetas.join(", ")}.${card.url ? ` Cartão: ${card.url}.` : ""}\n\n${card.descricao}\n\n${card.checklist.map((i) => `- [${i.concluido ? "x" : " "}] ${i.nome}`).join("\n")}\n\n`;
 await writeFile(new URL("TRELLO.md", dir), md.trimEnd() + "\n");
 console.log(`Especificação local atualizada: ${listas.length} listas e ${cards.length} cartões. Quadro publicado: ${criadoNoServico ? "sim" : "não"}. Esta execução não acessa o Trello.`);

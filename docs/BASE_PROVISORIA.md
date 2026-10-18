@@ -45,7 +45,7 @@ As pastas originais não foram movidas nem alteradas. Na nova entrega, a raiz us
 ## Pendente
 
 - Concluir a conferência manual final e abrir o PR final develop → main. O PR #1 já foi integrado em develop.
-- Publicar e conferir o quadro Lab365PetAmigo no Trello. Estado e links reais em `docs/avaliacao/TRELLO.md`. O professor será adicionado posteriormente.
+- Manter o quadro [Lab365PetAmigo](https://trello.com/b/LexKmACW/lab365petamigo) atualizado; as cinco listas e os 11 cartões já foram criados e conferidos. Links em `docs/avaliacao/TRELLO.md`. O professor será adicionado posteriormente.
 - Validar a entrega dos módulos 2 e 3, registrar cartões/PRs e preparar apresentação/entrega.
 
 ## Decisões de contrato

@@ -15,15 +15,15 @@ Atualizado em 18/10/2026. Trabalho individual; implementação restrita aos requ
 
 ## Trello e trabalho individual
 
-Quadro: **Lab365PetAmigo**. Estado, especificação e links reais em [TRELLO.md](TRELLO.md). `npm run avaliacao:preparar` atualiza somente arquivos locais, sem criar objetos no serviço.
+Quadro público criado: [Lab365PetAmigo](https://trello.com/b/LexKmACW/lab365petamigo). Estado e links dos 11 cartões conferidos em [TRELLO.md](TRELLO.md). O registro `trello-publicado.json` preserva os endereços e os critérios verificados. `npm run avaliacao:preparar` atualiza somente arquivos locais, sem criar objetos no serviço.
 
-São cinco listas, etiquetas de módulo, responsável individual e 11 cartões. Os sete requisitos e o contato/termo foram integrados pelo PR #1 e podem ser registrados em Concluído. Git/entrega, gestão do quadro e sprint mantêm suas pendências reais.
+São cinco listas, etiquetas de módulo, responsável individual e 11 cartões. Os sete requisitos e o contato/termo foram integrados pelo PR #1 e estão em Concluído, com links e critérios conferidos. Git/entrega, gestão do quadro e sprint mantêm suas pendências reais.
 
 O professor será adicionado depois, por orientação do usuário. Nenhum convite foi enviado. Não há participantes adicionais, rodízios, dailies ou retrospectivas presumidos. Registrar somente atividades que ocorrerem. Janela de sprint proposta: 17 a 30/10, com entrega avaliativa antecipada em 19/10.
 
 ## Próximos passos
 
-1. Concluir e conferir o quadro no serviço; vincular cartões ao PR #1.
+1. Manter os cartões e seus vínculos atualizados conforme o andamento real.
 2. Adicionar o professor quando sua identificação estiver disponível.
 3. Fazer a conferência manual final nos dois perfis e resolver apontamentos por `fix/` e PR.
 4. Abrir o PR final `develop` → `main`, conferir a CI e integrar.
