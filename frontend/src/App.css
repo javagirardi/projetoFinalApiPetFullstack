@@ -200,6 +200,25 @@ dd { margin: 0; overflow-wrap: anywhere; }
 .btn-whatsapp { display: inline-flex; justify-content: center; align-items: center; gap: 8px; padding: 12px; background: #e8f4ed; border: 1px solid #d8eade; border-radius: 10px; color: #476f5b; text-decoration: none; font-size: 12px; font-weight: 600; line-height: 1.6; }
 .btn-whatsapp:hover { background: #ddefe5; }
 
+@media (min-width: 761px) and (max-height: 800px) {
+  .auth-layout { margin-top: 22px; margin-bottom: 22px; }
+  .auth-apresentacao { min-height: 560px; padding: 28px 34px 18px; }
+  .auth-apresentacao h2 { font-size: 32px; margin-top: 12px; }
+  .auth-apresentacao > p:not(.auth-rodape) { font-size: 13px; line-height: 1.6; margin-top: 12px; }
+  .auth-fotos { height: 260px; margin-top: 18px; }
+  .auth-foto-principal { height: 245px; }
+  .auth-foto-menor { height: 170px; bottom: 25px; }
+  .login-container { padding-top: 12px; padding-bottom: 12px; }
+  .login-card { padding: 26px 30px; }
+  .login-icone { width: 46px; height: 46px; margin-bottom: 16px; border-radius: 14px; }
+  .login-header { margin-bottom: 22px; }
+  .login-titulo { font-size: 30px; }
+  .login-subtitulo { font-size: 13px; }
+  .login-form { gap: 16px; }
+  .login-form .campo-input { padding-top: 11px; padding-bottom: 11px; }
+  .login-dica { margin-top: 22px; padding-top: 16px; font-size: 12px; line-height: 1.8; }
+  .login-nota { margin-top: 15px; }
+}
 @media (min-width: 1500px) { .auth-layout { margin-top: 55px; margin-bottom: 55px; } }
 @media (max-width: 1050px) {
   .menu { gap: 14px; padding: 14px 24px; }
