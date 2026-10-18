@@ -26,5 +26,14 @@ export function criarRotasLares({ dataSource, seguranca }) {
       throw error;
     }
   });
+  router.get("/minhas-adocoes", autenticar(seguranca), exigirRole(ROLE.LAR), async (req, res) => {
+    const pedidos = await dataSource.getRepository("Adocao").find({
+      where: { lar_adotivo_id: req.usuario.id }, relations: { pet: { raca: true }, historico: true },
+      order: { atualizado_em: "DESC", id: "DESC" },
+    });
+    return res.json(pedidos.map((pedido) => ({ ...pedido,
+      historico: pedido.historico.sort((a, b) => new Date(a.criado_em) - new Date(b.criado_em) || a.id - b.id),
+    })));
+  });
   return router;
 }
