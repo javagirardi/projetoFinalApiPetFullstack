@@ -97,12 +97,4 @@ O termo usa lorem ipsum demonstrativo, conforme solicitado. O WhatsApp autorizad
 
 Repositório: [projetoFinalApiPetFullstack](https://github.com/javagirardi/projetoFinalApiPetFullstack). A versão atual está na [develop](https://github.com/javagirardi/projetoFinalApiPetFullstack/tree/develop), após o [merge do PR #1](https://github.com/javagirardi/projetoFinalApiPetFullstack/pull/1). A integração final em main ainda está pendente.
 
-O trabalho é individual, conforme informado pelo usuário. O único destino de publicação autorizado é `https://github.com/javagirardi/projetoFinalApiPetFullstack`, configurado em `origin`. O repositório pessoal foi criado e a conta `javagirardi` foi autenticada. O usuário cancelou a publicação na organização do curso. A integração deve seguir `feature/...` → PR → `develop`, e a entrega deve ocorrer por PR de `develop` para `main`, sem commits diretos em `main`. A situação efetiva de publicação, PR e revisão está em `docs/avaliacao/DESTINOS_GITHUB.md`; a entrega no AVA não foi realizada.
-
-O trabalho local foi consolidado na branch `feature/modulos-2-e-3` e integrado por PR. Em 18/10/2026, os commits foram reorganizados por requisito, preservando o código final. Consulte [o mapa dos commits](docs/avaliacao/HISTORICO_REQUISITOS.md) e [a conferência dos requisitos](docs/avaliacao/CONFERENCIA_REQUISITOS.md). O histórico não representa PRs anteriores por funcionalidade.
-
-O endereço e os identificadores do template de origem estão documentados para consulta, sem substituir o `origin` pessoal. A CI e o modelo de PR estão em `.github/`; os resultados remotos devem ser conferidos no GitHub.
-
-O quadro público [**Lab365PetAmigo**](https://trello.com/b/LexKmACW/lab365petamigo) foi criado com cinco listas, 11 cartões, etiquetas, responsável individual e checklists verificadas. O estado de publicação e os links do serviço são mantidos em `docs/avaliacao/TRELLO.md`; o professor será adicionado posteriormente. Confira [os cartões publicados](docs/avaliacao/TRELLO.md) e [o roteiro de Git/entrega](docs/avaliacao/GIT_E_ENTREGA.md). `npm run avaliacao:preparar` regenera a especificação local, sem acessar serviços externos.
-
-O [relatório de análise](RELATORIO_MODULOS_2_E_3.md) registra o estado anterior à implementação e as orientações da avaliação. O [progresso atual](docs/BASE_PROVISORIA.md) distingue o que foi preparado e o que está pendente.
+O quadro público [**Lab365PetAmigo**](https://trello.com/b/LexKmACW/lab365petamigo) foi criado. O estado de publicação e os links do serviço são mantidos em `docs/avaliacao/TRELLO.md`.
