@@ -1,1 +1,0 @@
-export const MORADIAS = ["CASA", "CASA_QUINTAL", "APARTAMENTO"];

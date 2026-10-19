@@ -1,57 +1,44 @@
-import { Navigate, Routes, Route, useLocation } from 'react-router-dom'
-import Header from './components/Header.jsx'
-import Home from './pages/Site/Home/Home.jsx'
-import Pets from './pages/Site/Pets/Pets.jsx'
-import PetDetalhe from './pages/Site/PetDetalhe/PetDetalhe.jsx'
-import Login from './pages/Auth/Login/Login.jsx'
-import Cadastro from './pages/Auth/Cadastro/Cadastro.jsx'
-import MinhasAdocoes from './pages/Site/MinhasAdocoes/MinhasAdocoes.jsx'
-import AdminLayout from './components/AdminLayout/AdminLayout.jsx'
-import Processos from './pages/Admin/Processos/Processos/Processos.jsx'
-import ProcessoDetalhe from './pages/Admin/Processos/ProcessoDetalhe/ProcessoDetalhe.jsx'
-import PetsAdmin from './pages/Admin/Pets/PetsAdmin/PetsAdmin.jsx'
-import PetForm from './pages/Admin/Pets/PetForm/PetForm.jsx'
-import Lares from './pages/Admin/Lares/Lares/Lares.jsx'
+import { BrowserRouter, Navigate, Outlet, Route, Routes } from "react-router-dom";
+import { ROLE, ROTAS } from "@lab365/contracts";
+import { AuthProvider, useAuth } from "./auth/AuthContext.jsx";
+import RotaProtegida from "./auth/RotaProtegida.jsx";
+import Header from "./components/Header.jsx";
+import AdminLayout from "./components/AdminLayout/AdminLayout.jsx";
+import Login from "./pages/Auth/Login/Login.jsx";
+import PaginaNaoEncontrada from "./pages/PaginaNaoEncontrada.jsx";
+import Cadastro from "./pages/Auth/Cadastro/Cadastro.jsx";
+import MinhasAdocoes from "./pages/Site/MinhasAdocoes/MinhasAdocoes.jsx";
+import PetList from "./pages/Admin/Pets/PetsAdmin/PetsAdmin.jsx";
+import PetForm from "./pages/Admin/Pets/PetForm/PetForm.jsx";
 
-// TODO: proteger as rotas conforme o perfil de quem está logado (role "admin" ou "lar"):
-//   - a Home é de visitantes e lares adotivos; a equipe vai direto para o painel;
-//   - "Minhas adoções" é só do lar adotivo (sem login, vai para o login e volta depois);
-//   - o painel /admin é só da equipe.
-
+function Layout() { return <><Header /><main className="conteudo-principal"><Outlet /></main></>; }
+function Home() {
+  const { usuario } = useAuth();
+  const destino = !usuario ? ROTAS.LOGIN : usuario.role === ROLE.EQUIPE ? ROTAS.ADMIN_PETS : ROTAS.MINHAS_ADOCOES;
+  return <Navigate to={destino} replace />;
+}
 export default function App() {
-  const { pathname } = useLocation()
-  // o painel tem o próprio menu (AdminLayout)
-  const telaAdmin = pathname.startsWith('/admin')
-
-  return (
-    <>
-      {!telaAdmin && <Header />}
-      <main>
-        <Routes>
-          {/* site */}
-          <Route path="/" element={<Home />} />
-          <Route path="/pets" element={<Pets />} />
-          <Route path="/pets/:id" element={<PetDetalhe />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/cadastro" element={<Cadastro />} />
-          <Route path="/minhas-adocoes" element={<MinhasAdocoes />} />
-
-          {/* painel da equipe */}
-          <Route path="/admin" element={<AdminLayout />}>
-            <Route index element={<Navigate to="processos" replace />} />
-            <Route path="processos" element={<Processos />} />
-            <Route path="processos/:id" element={<ProcessoDetalhe />} />
-            <Route path="pets" element={<PetsAdmin />} />
-            <Route path="pets/novo" element={<PetForm key="novo" />} />
-            <Route path="pets/:id" element={<PetForm />} />
-            <Route path="lares" element={<Lares />} />
-            {/* o dossiê fica na própria listagem: o :id rola até o lar e abre o histórico dele */}
-            <Route path="lares/:id" element={<Lares />} />
-          </Route>
-
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
-      </main>
-    </>
-  )
+  return <BrowserRouter><AuthProvider><Routes>
+    <Route path={ROTAS.LOGIN} element={<Login />} />
+    <Route element={<Layout />}>
+      <Route path={ROTAS.HOME} element={<Home />} />
+      <Route path={ROTAS.CADASTRO} element={<Cadastro />} />
+      <Route element={<RotaProtegida role={ROLE.LAR} />}>
+        <Route path={ROTAS.MINHAS_ADOCOES} element={<MinhasAdocoes />} />
+        {/* Entrada prevista em 2.1, direcionada à tela disponível nesta entrega. */}
+        <Route path={ROTAS.PETS} element={<Navigate to={ROTAS.MINHAS_ADOCOES} replace />} />
+      </Route>
+      <Route path="*" element={<PaginaNaoEncontrada />} />
+    </Route>
+    <Route element={<RotaProtegida role={ROLE.EQUIPE} />}>
+      <Route path={ROTAS.PROCESSOS} element={<Navigate to={ROTAS.ADMIN_PETS} replace />} />
+      <Route path="/admin" element={<AdminLayout />}>
+        <Route index element={<Navigate to="pets" replace />} />
+        <Route path="pets" element={<PetList />} />
+        <Route path="pets/novo" element={<PetForm key="novo" />} />
+        <Route path="pets/:id" element={<PetForm />} />
+        <Route path="pets/:id/editar" element={<PetForm />} />
+      </Route>
+    </Route>
+  </Routes></AuthProvider></BrowserRouter>;
 }
